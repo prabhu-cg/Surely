@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Container } from "@/components/container";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 import { PlaceholderImage } from "@/components/placeholder-image";
@@ -17,11 +18,18 @@ const COMPACT_INSIGHTS = [
     readTime: "3 min read",
     image: "insight-03.jpg",
   },
+  {
+    title: "Why the room you're in shapes the ideas you have.",
+    author: "Founder 2",
+    readTime: "4 min read",
+    image: "insight-04.jpg",
+    real: true,
+  },
 ];
 
 export function Insights() {
   return (
-    <section id="insights" className="bg-cloud-50 py-20 sm:py-28">
+    <section id="insights" className="scroll-mt-20 bg-cloud-50 py-20 sm:py-28">
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col gap-4">
           <SectionEyebrow>Insights</SectionEyebrow>
@@ -67,10 +75,22 @@ export function Insights() {
                 key={insight.title}
                 className="flex gap-4 rounded-2xl border border-cloud-600 p-5"
               >
-                <PlaceholderImage
-                  label={insight.image}
-                  className="aspect-square w-28 shrink-0 rounded-xl sm:w-32"
-                />
+                {insight.real ? (
+                  <div className="relative aspect-square w-28 shrink-0 overflow-hidden rounded-xl sm:w-32">
+                    <Image
+                      src={`/images/${insight.image}`}
+                      alt={insight.title}
+                      fill
+                      sizes="128px"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <PlaceholderImage
+                    label={insight.image}
+                    className="aspect-square w-28 shrink-0 rounded-xl sm:w-32"
+                  />
+                )}
                 <div className="flex flex-col justify-center gap-2">
                   <p className="text-body-lg font-bold text-midnight-800">
                     {insight.title}

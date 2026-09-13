@@ -1,8 +1,13 @@
 import Link from "next/link";
+import { LinkedinLogo } from "@phosphor-icons/react/dist/ssr";
+import type { Icon } from "@phosphor-icons/react";
 import { Logo } from "@/components/logo";
 import { Container } from "@/components/container";
 
-const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
+const COLUMNS: {
+  title: string;
+  links: { label: string; href: string; icon?: Icon }[];
+}[] = [
   {
     title: "Explore",
     links: [
@@ -22,7 +27,7 @@ const COLUMNS: { title: string; links: { label: string; href: string }[] }[] = [
   {
     title: "Connect",
     links: [
-      { label: "LinkedIn", href: "#" },
+      { label: "LinkedIn", href: "#", icon: LinkedinLogo },
       { label: "Instagram", href: "#" },
       { label: "Email", href: "mailto:hello@surely.com" },
     ],
@@ -52,8 +57,9 @@ export function SiteFooter() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-body-sm text-cloud-100 transition-colors hover:text-lime-400"
+                    className="inline-flex items-center gap-2 text-body-sm text-cloud-100 transition-colors hover:text-lime-400"
                   >
+                    {link.icon ? <link.icon className="size-4" /> : null}
                     {link.label}
                   </Link>
                 </li>

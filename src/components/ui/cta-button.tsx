@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
@@ -54,7 +54,7 @@ export function CtaButton({
           badgeVariants[variant ?? "dark"]
         )}
       >
-        <ArrowRight className="size-4" strokeWidth={2.25} />
+        <ArrowRight className="size-4" weight="bold" />
       </span>
     </>
   );

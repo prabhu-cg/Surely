@@ -39,7 +39,10 @@ const ITEMS: { title: string; icon: Icon; body: string }[] = [
 
 export function WhatWeDo() {
   return (
-    <section id="what-we-do" className="bg-cloud-100 py-20 sm:py-28">
+    <section
+      id="what-we-do"
+      className="scroll-mt-20 bg-cloud-100 py-20 sm:py-28"
+    >
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col gap-4">
           <SectionEyebrow>What we do</SectionEyebrow>

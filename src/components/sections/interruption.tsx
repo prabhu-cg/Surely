@@ -51,26 +51,24 @@ export function Interruption() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-[1.4fr_1fr] lg:gap-16">
-          <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
-            <BulletList title="Sometimes it’s obvious." items={OBVIOUS} />
-            <BulletList title="Sometimes it’s harder." items={HARDER} />
-          </div>
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-8">
+          <BulletList title="Sometimes it’s obvious." items={OBVIOUS} />
+          <BulletList title="Sometimes it’s harder." items={HARDER} />
 
-          <div className="relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-2xl">
+          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl lg:aspect-auto lg:h-full lg:min-h-[22rem]">
             <Image
               src="/images/three-founders.jpg"
               alt="People passing through a modern office lobby"
               fill
-              sizes="(min-width: 1024px) 480px, 100vw"
+              sizes="(min-width: 1024px) 360px, 100vw"
               className="object-cover"
             />
             <div
               className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-midnight-900/90 to-transparent"
               aria-hidden="true"
             />
-            <div className="relative flex flex-col gap-4 p-6">
-              <div className="flex -space-x-3">
+            <div className="relative flex h-full flex-col justify-end gap-4 p-6">
+              <div className="ml-auto flex -space-x-3">
                 {AVATARS.map((avatar) => (
                   <span
                     key={avatar.name}

@@ -27,7 +27,7 @@ const FOUNDERS = [
 
 export function ThreePerspectives() {
   return (
-    <section id="about" className="bg-lime-200 py-20 sm:py-28">
+    <section id="about" className="scroll-mt-20 bg-lime-100 py-20 sm:py-28">
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col items-center gap-4 text-center">
           <SectionEyebrow tone="lime">Three perspectives</SectionEyebrow>

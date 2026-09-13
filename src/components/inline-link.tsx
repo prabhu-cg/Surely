@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight } from "@phosphor-icons/react/dist/ssr";
 import { cn } from "@/lib/utils";
 
 export function InlineLink({
@@ -27,7 +27,7 @@ export function InlineLink({
       <span>{children}</span>
       <ArrowRight
         className="size-3.5 transition-transform group-hover:translate-x-0.5"
-        strokeWidth={2.5}
+        weight="bold"
       />
     </Link>
   );

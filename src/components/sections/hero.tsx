@@ -27,13 +27,13 @@ export function Hero() {
           Let&rsquo;s explore
         </CtaButton>
 
-        <div className="relative mt-8 aspect-[16/10] w-full max-w-4xl overflow-hidden rounded-2xl sm:aspect-[16/8]">
+        <div className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-2xl sm:aspect-[16/8]">
           <Image
             src="/images/hero-perspective.jpg"
             alt="Two people reviewing work together at laptops"
             fill
             priority
-            sizes="(min-width: 1024px) 896px, 100vw"
+            sizes="(min-width: 1024px) 1088px, 100vw"
             className="object-cover"
           />
         </div>

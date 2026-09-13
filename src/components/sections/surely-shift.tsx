@@ -11,7 +11,10 @@ const STEPS = [
 
 export function SurelyShift() {
   return (
-    <section id="how-we-work" className="bg-cloud-50 py-20 sm:py-28">
+    <section
+      id="how-we-work"
+      className="scroll-mt-20 bg-cloud-50 py-20 sm:py-28"
+    >
       <Container className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col gap-4">
           <SectionEyebrow>The Surely shift</SectionEyebrow>
