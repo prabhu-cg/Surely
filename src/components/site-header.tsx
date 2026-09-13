@@ -50,7 +50,11 @@ export function SiteHeader() {
               <Menu className="size-5" />
             </button>
           </SheetTrigger>
-          <SheetContent side="right" className="w-full max-w-xs bg-cloud-50 p-0">
+          <SheetContent
+            side="right"
+            className="w-full max-w-xs bg-cloud-50 p-0"
+            showCloseButton={false}
+          >
             <div className="flex h-20 items-center justify-between border-b border-cloud-600 px-6">
               <Logo className="h-5 text-midnight-800" />
               <button
@@ -74,7 +78,7 @@ export function SiteHeader() {
               ))}
             </nav>
             <div className="px-6">
-              <CtaButton href="#talk" className="w-full justify-between">
+              <CtaButton href="#talk" className="w-full justify-center">
                 Let&rsquo;s talk
               </CtaButton>
             </div>
