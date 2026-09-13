@@ -1,0 +1,30 @@
+{
+  "pages": [
+    { "id": "page-1", "name": "Landing Page" },
+    { "id": "page-4", "name": "Previous Version (Dark)" },
+    { "id": "page-3", "name": "Round 2 — Light & Human" },
+    { "id": "page-2", "name": "Direction Sketches" }
+  ],
+  "artboards": [
+    { "file": "Main.dc.html", "x": 0, "y": 0, "w": 1440, "h": 7500, "page": "page-1", "expand": "fit" },
+    { "file": "PreviousDark.dc.html", "x": 0, "y": 0, "w": 1440, "h": 7950, "page": "page-4", "expand": "fit" },
+    { "file": "SampleE.dc.html", "x": 0, "y": 0, "w": 1440, "h": 950, "page": "page-3" },
+    { "file": "SampleF.dc.html", "x": 1540, "y": 0, "w": 1440, "h": 980, "page": "page-3" },
+    { "file": "SampleG.dc.html", "x": 3080, "y": 0, "w": 1440, "h": 900, "page": "page-3" },
+    { "file": "SketchA.dc.html", "x": 0, "y": 0, "w": 1440, "h": 900, "page": "page-2" },
+    { "file": "DirectionB.dc.html", "x": 1540, "y": 0, "w": 1440, "h": 900, "page": "page-2" },
+    { "file": "DirectionC.dc.html", "x": 3080, "y": 0, "w": 1440, "h": 900, "page": "page-2" },
+    { "file": "DirectionD.dc.html", "x": 4620, "y": 0, "w": 1440, "h": 900, "page": "page-2" }
+  ],
+  "annotations": [
+    { "id": "note-prev-dark", "x": 0, "y": -90, "w": 500, "text": "Previous full-page build — Dark Statement direction, kept for reference", "page": "page-4" },
+    { "id": "note-sample-e", "x": 0, "y": -90, "w": 420, "text": "E — Editorial Cream", "page": "page-3" },
+    { "id": "note-sample-f", "x": 1540, "y": -90, "w": 420, "text": "F — Contact Sheet Collage — CHOSEN, built out as the full page", "page": "page-3" },
+    { "id": "note-sample-g", "x": 3080, "y": -90, "w": 420, "text": "G — Poster Stamp", "page": "page-3" },
+    { "id": "note-sketch-a", "x": 0, "y": -90, "w": 400, "text": "A — Bold Editorial (not chosen)", "page": "page-2" },
+    { "id": "note-sketch-b", "x": 1540, "y": -90, "w": 400, "text": "B — Split Confident (not chosen)", "page": "page-2" },
+    { "id": "note-sketch-c", "x": 3080, "y": -90, "w": 400, "text": "C — Brutalist Type-First (not chosen)", "page": "page-2" },
+    { "id": "note-sketch-d", "x": 4620, "y": -90, "w": 400, "text": "D — Dark Statement (superseded — see Previous Version page)", "page": "page-2" }
+  ],
+  "launch": { "view": "canvas", "page": "page-1" }
+}

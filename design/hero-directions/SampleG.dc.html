@@ -1,0 +1,144 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,500&display=swap">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rough.js/3.1.0/rough.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    :root {
+      --cloud-500: #FFFDF8;
+      --cloud-600: #e8e6e2;
+      --cloud-700: #b5b4b0;
+      --midnight-500: #181818;
+      --midnight-400: #464646;
+      --midnight-300: #646464;
+      --lime-500: #C7F000;
+    }
+    body { margin: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--cloud-500); }
+    p { margin: 0; }
+  </style>
+</helmet>
+
+<div style="position: relative; width: 1440px; height: 900px; background: var(--cloud-500); overflow: hidden;">
+
+  <div style="display: flex; align-items: center; justify-content: space-between; padding: 34px 56px 0;">
+    <div style="display: flex; align-items: baseline; gap: 3px;">
+      <span style="font-weight: 800; font-size: 22px; color: var(--midnight-500);">SURELY</span>
+      <span style="width: 7px; height: 7px; border-radius: 50%; background: var(--lime-500); display: inline-block; transform: translateY(-7px);"></span>
+    </div>
+    <div style="display: flex; align-items: center; gap: 40px;">
+      <span style="font-size: 14px; font-weight: 600; color: var(--midnight-400);">What we do</span>
+      <span style="font-size: 14px; font-weight: 600; color: var(--midnight-400);">How we work</span>
+      <span style="font-size: 14px; font-weight: 600; color: var(--midnight-400);">Insights</span>
+      <a href="#" style="background: var(--midnight-500); color: var(--cloud-500); border-radius: 999px; padding: 11px 22px; font-size: 14px; font-weight: 700; text-decoration: none;">Let&rsquo;s talk</a>
+    </div>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 420px; gap: 40px; align-items: center; padding: 44px 56px 0;">
+
+    <div style="display: flex; flex-direction: column; gap: 26px;">
+      <!-- risograph misprint headline -->
+      <div style="position: relative;">
+        <h1 style="position: absolute; top: 5px; left: 7px; margin: 0; font-weight: 800; font-size: 70px; line-height: 0.98; letter-spacing: -0.02em; color: var(--lime-500); text-transform: uppercase; opacity: 0.85;" aria-hidden="true">We question what everyone else accepts.</h1>
+        <h1 style="position: relative; margin: 0; font-weight: 800; font-size: 70px; line-height: 0.98; letter-spacing: -0.02em; color: var(--midnight-500); text-transform: uppercase;">We question what everyone else accepts.</h1>
+      </div>
+
+      <p style="font-family: 'Source Serif 4', serif; font-style: italic; font-weight: 500; font-size: 24px; color: var(--midnight-400); margin-top: 8px;">There must be a better way.</p>
+      <p style="font-size: 16px; line-height: 1.65; color: var(--midnight-400); max-width: 500px;">We look at problems, systems, ideas and opportunities from a different perspective &mdash; because sometimes the way things have always been done isn&rsquo;t the best way forward.</p>
+
+      <a href="#" style="display: inline-flex; align-items: center; gap: 10px; margin-top: 6px; font-weight: 700; font-size: 16px; padding: 16px 28px; background: var(--lime-500); color: var(--midnight-500); border-radius: 999px; width: fit-content; text-decoration: none;">Let&rsquo;s explore &rarr;</a>
+    </div>
+
+    <!-- stamp-style photo placeholder -->
+    <div style="position: relative; width: 380px; height: 460px; transform: rotate(2deg); margin: 0 auto;">
+      <svg width="380" height="460" viewBox="0 0 380 460" style="position: absolute; inset: 0;">
+        <defs>
+          <pattern id="hfG" width="9" height="9" patternUnits="userSpaceOnUse">
+            <circle cx="4.5" cy="4.5" r="3.3" fill="#181818"/>
+          </pattern>
+        </defs>
+        <rect x="12" y="12" width="356" height="436" fill="#e8e6e2"/>
+        <rect x="12" y="12" width="356" height="436" fill="url(#hfG)" opacity="0.6"/>
+        <g id="stampFrameG"></g>
+      </svg>
+      <div style="position: absolute; bottom: 22px; right: 26px; background: var(--cloud-500); border: 1px solid var(--midnight-500); padding: 5px 10px; transform: rotate(-3deg);">
+        <span style="font-family: 'Source Serif 4', serif; font-style: italic; font-size: 12px; color: var(--midnight-500);">Photograph placeholder</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- icon toolkit row -->
+  <div style="position: absolute; bottom: 46px; left: 56px; right: 56px; display: flex; align-items: center; gap: 28px;">
+    <span style="font-size: 12px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--midnight-300); white-space: nowrap;">The toolkit</span>
+    <div style="flex: 1; height: 1px; background: var(--cloud-700);"></div>
+    <div style="display: flex; align-items: center; gap: 34px;">
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <svg id="iconG-question" width="38" height="38" viewBox="0 0 56 56"></svg>
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--midnight-500);">Question</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <svg id="iconG-understand" width="38" height="38" viewBox="0 0 56 56"></svg>
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--midnight-500);">Understand</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <svg id="iconG-explore" width="38" height="38" viewBox="0 0 56 56"></svg>
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--midnight-500);">Explore</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <svg id="iconG-build" width="38" height="38" viewBox="0 0 56 56"></svg>
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--midnight-500);">Build</span>
+      </div>
+      <div style="display: flex; flex-direction: column; align-items: center; gap: 6px;">
+        <svg id="iconG-improve" width="38" height="38" viewBox="0 0 56 56"></svg>
+        <span style="font-size: 10px; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--midnight-500);">Improve</span>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  function draw(id, fn) {
+    var el = document.getElementById(id);
+    if (!el || !window.rough) return;
+    var rc = rough.svg(el);
+    fn(rc, el);
+  }
+  draw('stampFrameG', function (rc, el) {
+    el.appendChild(rc.rectangle(12, 12, 356, 436, { stroke: '#181818', strokeWidth: 3, roughness: 2.2, fill: 'none' }));
+  });
+  draw('iconG-question', function (rc, el) {
+    el.appendChild(rc.circle(22, 22, 26, { stroke: '#181818', strokeWidth: 2.4, roughness: 1.8, fill: 'none' }));
+    el.appendChild(rc.line(33, 33, 48, 48, { stroke: '#181818', strokeWidth: 2.8, roughness: 1.8 }));
+  });
+  draw('iconG-understand', function (rc, el) {
+    el.appendChild(rc.ellipse(28, 28, 44, 24, { stroke: '#181818', strokeWidth: 2.4, roughness: 1.8, fill: 'none' }));
+    el.appendChild(rc.circle(28, 28, 11, { stroke: '#181818', strokeWidth: 2.4, roughness: 1.8, fill: '#181818', fillStyle: 'solid' }));
+  });
+  draw('iconG-explore', function (rc, el) {
+    el.appendChild(rc.circle(28, 28, 40, { stroke: '#181818', strokeWidth: 2.4, roughness: 1.8, fill: 'none' }));
+    el.appendChild(rc.line(28, 12, 34, 28, { stroke: '#181818', strokeWidth: 2.4, roughness: 1.8 }));
+    el.appendChild(rc.line(34, 28, 22, 44, { stroke: '#181818', strokeWidth: 2.4, roughness: 1.8 }));
+  });
+  draw('iconG-build', function (rc, el) {
+    el.appendChild(rc.rectangle(9, 30, 17, 17, { stroke: '#181818', strokeWidth: 2.4, roughness: 1.8, fill: 'none' }));
+    el.appendChild(rc.rectangle(28, 13, 17, 17, { stroke: '#181818', strokeWidth: 2.4, roughness: 1.8, fill: 'none' }));
+  });
+  draw('iconG-improve', function (rc, el) {
+    el.appendChild(rc.line(14, 44, 42, 16, { stroke: '#181818', strokeWidth: 2.6, roughness: 1.8 }));
+    el.appendChild(rc.line(42, 16, 30, 18, { stroke: '#181818', strokeWidth: 2.4, roughness: 1.8 }));
+    el.appendChild(rc.line(42, 16, 40, 28, { stroke: '#181818', strokeWidth: 2.4, roughness: 1.8 }));
+  });
+})();
+</script>
+</x-dc>
+</body>
+</html>

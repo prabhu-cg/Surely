@@ -1,0 +1,209 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ---------------------------------------------------------------------- */
+/* Surely design tokens                                                    */
+/* Source: brand color ramps (Cloud / Midnight / Lime) + type scale spec.  */
+/* ---------------------------------------------------------------------- */
+
+@theme {
+  /* Cloud — light neutral ramp */
+  --color-cloud-50: #fffffe;
+  --color-cloud-100: #fffefd;
+  --color-cloud-200: #fffefc;
+  --color-cloud-300: #fffefa;
+  --color-cloud-400: #fffdf9;
+  --color-cloud-500: #fffdf8;
+  --color-cloud-600: #e8e6e2;
+  --color-cloud-700: #b5b4b0;
+  --color-cloud-800: #8c8b88;
+  --color-cloud-900: #6b6a68;
+
+  /* Midnight — dark neutral ramp */
+  --color-midnight-50: #e8e8e8;
+  --color-midnight-100: #b7b7b7;
+  --color-midnight-200: #959595;
+  --color-midnight-300: #646464;
+  --color-midnight-400: #464646;
+  --color-midnight-500: #181818;
+  --color-midnight-600: #161616;
+  --color-midnight-700: #111111;
+  --color-midnight-800: #0d0d0d;
+  --color-midnight-900: #0a0a0a;
+
+  /* Lime — brand accent ramp */
+  --color-lime-50: #f9fee6;
+  --color-lime-100: #eefab0;
+  --color-lime-200: #e5f88a;
+  --color-lime-300: #d9f554;
+  --color-lime-400: #d2f333;
+  --color-lime-500: #c7f000;
+  --color-lime-600: #b5da00;
+  --color-lime-700: #8daa00;
+  --color-lime-800: #6d8400;
+  --color-lime-900: #546500;
+
+  /* Type families */
+  --font-sans: var(--font-plus-jakarta-sans), ui-sans-serif, system-ui,
+    sans-serif;
+  --font-serif: var(--font-source-serif-4), ui-serif, Georgia, serif;
+
+  /* Display */
+  --text-display-lg: 7rem;
+  --text-display-lg--line-height: 8.5rem;
+  --text-display-md: 6rem;
+  --text-display-md--line-height: 7rem;
+
+  /* Heading */
+  --text-heading-2xl: 4.75rem;
+  --text-heading-2xl--line-height: 5.75rem;
+  --text-heading-xl: 3.5rem;
+  --text-heading-xl--line-height: 4.25rem;
+  --text-heading-lg: 3rem;
+  --text-heading-lg--line-height: 3.5rem;
+  --text-heading-md: 2.5rem;
+  --text-heading-md--line-height: 3rem;
+  --text-heading-sm: 2rem;
+  --text-heading-sm--line-height: 2.5rem;
+  --text-heading-xs: 1.5rem;
+  --text-heading-xs--line-height: 1.75rem;
+
+  /* Body */
+  --text-body-xl: 1.25rem;
+  --text-body-xl--line-height: 1.875rem;
+  --text-body-lg: 1.125rem;
+  --text-body-lg--line-height: 1.75rem;
+  --text-body-md: 1rem;
+  --text-body-md--line-height: 1.5rem;
+  --text-body-sm: 0.875rem;
+  --text-body-sm--line-height: 1.25rem;
+  --text-body-xs: 0.75rem;
+  --text-body-xs--line-height: 1rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-heading: var(--font-sans);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --background: var(--color-cloud-50);
+  --foreground: var(--color-midnight-800);
+  --card: var(--color-cloud-50);
+  --card-foreground: var(--color-midnight-800);
+  --popover: var(--color-cloud-50);
+  --popover-foreground: var(--color-midnight-800);
+  --primary: var(--color-midnight-500);
+  --primary-foreground: var(--color-cloud-50);
+  --secondary: var(--color-cloud-100);
+  --secondary-foreground: var(--color-midnight-800);
+  --muted: var(--color-cloud-100);
+  --muted-foreground: var(--color-midnight-300);
+  --accent: var(--color-lime-500);
+  --accent-foreground: var(--color-midnight-900);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: var(--color-cloud-600);
+  --input: var(--color-cloud-600);
+  --ring: var(--color-lime-600);
+  --chart-1: var(--color-lime-500);
+  --chart-2: var(--color-midnight-300);
+  --chart-3: var(--color-cloud-800);
+  --chart-4: var(--color-lime-700);
+  --chart-5: var(--color-midnight-500);
+  --radius: 1rem;
+  --sidebar: var(--color-cloud-50);
+  --sidebar-foreground: var(--color-midnight-800);
+  --sidebar-primary: var(--color-midnight-500);
+  --sidebar-primary-foreground: var(--color-cloud-50);
+  --sidebar-accent: var(--color-lime-500);
+  --sidebar-accent-foreground: var(--color-midnight-900);
+  --sidebar-border: var(--color-cloud-600);
+  --sidebar-ring: var(--color-lime-600);
+}
+
+.dark {
+  --background: var(--color-midnight-700);
+  --foreground: var(--color-cloud-50);
+  --card: var(--color-midnight-600);
+  --card-foreground: var(--color-cloud-50);
+  --popover: var(--color-midnight-600);
+  --popover-foreground: var(--color-cloud-50);
+  --primary: var(--color-lime-500);
+  --primary-foreground: var(--color-midnight-900);
+  --secondary: var(--color-midnight-500);
+  --secondary-foreground: var(--color-cloud-50);
+  --muted: var(--color-midnight-500);
+  --muted-foreground: var(--color-midnight-100);
+  --accent: var(--color-lime-500);
+  --accent-foreground: var(--color-midnight-900);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: color-mix(in oklab, var(--color-cloud-50) 12%, transparent);
+  --input: color-mix(in oklab, var(--color-cloud-50) 15%, transparent);
+  --ring: var(--color-lime-500);
+  --chart-1: var(--color-lime-500);
+  --chart-2: var(--color-cloud-300);
+  --chart-3: var(--color-cloud-600);
+  --chart-4: var(--color-lime-300);
+  --chart-5: var(--color-cloud-50);
+  --sidebar: var(--color-midnight-700);
+  --sidebar-foreground: var(--color-cloud-50);
+  --sidebar-primary: var(--color-lime-500);
+  --sidebar-primary-foreground: var(--color-midnight-900);
+  --sidebar-accent: var(--color-lime-500);
+  --sidebar-accent-foreground: var(--color-midnight-900);
+  --sidebar-border: color-mix(in oklab, var(--color-cloud-50) 12%, transparent);
+  --sidebar-ring: var(--color-lime-500);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html {
+    @apply font-sans;
+  }
+}
