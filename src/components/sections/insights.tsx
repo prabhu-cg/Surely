@@ -5,26 +5,57 @@ import { SectionEyebrow } from "@/components/section-eyebrow";
 import { InlineLink } from "@/components/inline-link";
 import { CtaButton } from "@/components/ui/cta-button";
 
+const FOUNDERS = {
+  builder: { name: "The Builder", avatar: "/images/founder-builder.png" },
+  explorer: { name: "The Explorer", avatar: "/images/founder-explorer.png" },
+  thinker: { name: "The Thinker", avatar: "/images/founder-thinker.png" },
+} as const;
+
 const COMPACT_INSIGHTS = [
   {
     title: "The best answer may not be the first one.",
-    author: "Founder 2",
+    author: FOUNDERS.explorer,
     readTime: "3 min read",
     image: "insight-02.jpg",
   },
   {
     title: "Small shifts. Different outcomes.",
-    author: "Founder 3",
+    author: FOUNDERS.thinker,
     readTime: "3 min read",
     image: "insight-03.jpg",
   },
   {
     title: "Why the room you're in shapes the ideas you have.",
-    author: "Founder 2",
+    author: FOUNDERS.explorer,
     readTime: "4 min read",
     image: "insight-04.jpg",
   },
 ];
+
+function AuthorMeta({
+  author,
+  readTime,
+}: {
+  author: { name: string; avatar: string };
+  readTime: string;
+}) {
+  return (
+    <div className="flex items-center gap-2">
+      <span className="relative size-6 shrink-0 overflow-hidden rounded-full">
+        <Image
+          src={author.avatar}
+          alt={author.name}
+          fill
+          sizes="24px"
+          className="object-cover"
+        />
+      </span>
+      <p className="text-body-sm text-midnight-400">
+        {author.name} · {readTime}
+      </p>
+    </div>
+  );
+}
 
 export function Insights() {
   return (
@@ -67,9 +98,7 @@ export function Insights() {
                 The most interesting problems often begin with something
                 that feels normal. Until you look closer.
               </p>
-              <p className="text-body-sm text-midnight-400">
-                Founder 1 · 3 min read
-              </p>
+              <AuthorMeta author={FOUNDERS.builder} readTime="3 min read" />
               <InlineLink href="#insights">Read more</InlineLink>
             </div>
           </article>
@@ -96,9 +125,7 @@ export function Insights() {
                   >
                     {insight.title}
                   </Link>
-                  <p className="text-body-sm text-midnight-400">
-                    {insight.author} · {insight.readTime}
-                  </p>
+                  <AuthorMeta author={insight.author} readTime={insight.readTime} />
                   <InlineLink href="#insights">Read more</InlineLink>
                 </div>
               </article>
