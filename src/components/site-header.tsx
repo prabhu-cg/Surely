@@ -30,10 +30,9 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="group relative pb-2 text-body-sm font-medium text-midnight-600 transition-colors hover:text-midnight-900"
+              className="text-body-sm font-medium text-midnight-600 underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-midnight-900 hover:decoration-lime-500"
             >
               {link.label}
-              <span className="absolute inset-x-0 -bottom-0.5 h-1 origin-left scale-x-0 rounded-full bg-lime-500 transition-transform duration-200 ease-out group-hover:scale-x-100" />
             </Link>
           ))}
         </nav>

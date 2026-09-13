@@ -65,11 +65,12 @@ export function SiteFooter() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="group relative inline-flex items-center gap-2 pb-2 text-body-sm text-cloud-100 transition-colors hover:text-lime-400"
+                    className="group inline-flex items-center gap-2 text-body-sm text-cloud-100 transition-colors hover:text-lime-400"
                   >
                     {link.icon ? <link.icon className="size-4" /> : null}
-                    {link.label}
-                    <span className="absolute inset-x-0 -bottom-0.5 h-1 origin-left scale-x-0 rounded-full bg-lime-500 transition-transform duration-200 ease-out group-hover:scale-x-100" />
+                    <span className="underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 group-hover:decoration-lime-400">
+                      {link.label}
+                    </span>
                   </Link>
                 </li>
               ))}

@@ -59,10 +59,9 @@ export function Insights() {
             <div className="flex flex-col gap-3">
               <Link
                 href="#insights"
-                className="group relative inline-block w-fit pb-1 text-heading-xs font-bold text-midnight-800 transition-colors hover:text-lime-700"
+                className="inline-block w-fit text-heading-xs font-bold text-midnight-800 underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-lime-700 hover:decoration-lime-500"
               >
                 Why do we still do it this way?
-                <span className="absolute inset-x-0 -bottom-0.5 h-1 origin-left scale-x-0 rounded-full bg-lime-500 transition-transform duration-200 ease-out group-hover:scale-x-100" />
               </Link>
               <p className="text-body-md text-midnight-600">
                 The most interesting problems often begin with something
@@ -93,10 +92,9 @@ export function Insights() {
                 <div className="flex flex-col justify-center gap-2">
                   <Link
                     href="#insights"
-                    className="group relative inline-block w-fit pb-1 text-body-lg font-bold text-midnight-800 transition-colors hover:text-lime-700"
+                    className="inline-block w-fit text-body-lg font-bold text-midnight-800 underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-lime-700 hover:decoration-lime-500"
                   >
                     {insight.title}
-                    <span className="absolute inset-x-0 -bottom-0.5 h-1 origin-left scale-x-0 rounded-full bg-lime-500 transition-transform duration-200 ease-out group-hover:scale-x-100" />
                   </Link>
                   <p className="text-body-sm text-midnight-400">
                     {insight.author} · {insight.readTime}
