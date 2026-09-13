@@ -1,28 +1,28 @@
 import {
-  CircleHelp,
-  Eye,
-  Compass,
+  Question,
+  Target,
+  Lightbulb,
   Hammer,
-  Sparkles,
-  type LucideIcon,
-} from "lucide-react";
+  PaintBrush,
+} from "@phosphor-icons/react/dist/ssr";
+import type { Icon } from "@phosphor-icons/react";
 import { Container } from "@/components/container";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 
-const ITEMS: { title: string; icon: LucideIcon; body: string }[] = [
+const ITEMS: { title: string; icon: Icon; body: string }[] = [
   {
     title: "Question",
-    icon: CircleHelp,
+    icon: Question,
     body: "We start by questioning the way things are today. What are we seeing? What are we assuming? And why does it work this way?",
   },
   {
     title: "Understand",
-    icon: Eye,
+    icon: Target,
     body: "We start by understanding the way things are today. What are we seeing? What are we assuming? And why does it work this way?",
   },
   {
     title: "Explore",
-    icon: Compass,
+    icon: Lightbulb,
     body: "We challenge assumptions, consider different perspectives and explore alternative ways forward.",
   },
   {
@@ -32,7 +32,7 @@ const ITEMS: { title: string; icon: LucideIcon; body: string }[] = [
   },
   {
     title: "Improve",
-    icon: Sparkles,
+    icon: PaintBrush,
     body: "Nothing’s perfect the first time. We listen, test, learn and adapt — using what happens in the real world to make things better.",
   },
 ];
@@ -59,7 +59,7 @@ export function WhatWeDo() {
               className="flex flex-col gap-4 rounded-2xl border border-cloud-600 bg-cloud-50 p-6"
             >
               <span className="flex size-11 items-center justify-center rounded-full bg-midnight-500">
-                <Icon className="size-5 text-lime-500" strokeWidth={1.75} />
+                <Icon className="size-5 text-lime-500" weight="regular" />
               </span>
               <p className="text-body-lg font-semibold text-midnight-800">
                 {title}

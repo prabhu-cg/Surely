@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { Container } from "@/components/container";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 import { CtaButton } from "@/components/ui/cta-button";
-import { PlaceholderImage } from "@/components/placeholder-image";
 
 export function Hero() {
   return (
@@ -27,10 +27,16 @@ export function Hero() {
           Let&rsquo;s explore
         </CtaButton>
 
-        <PlaceholderImage
-          label="hero-perspective.jpg"
-          className="mt-8 aspect-[16/10] w-full max-w-4xl rounded-2xl sm:aspect-[16/8]"
-        />
+        <div className="relative mt-8 aspect-[16/10] w-full max-w-4xl overflow-hidden rounded-2xl sm:aspect-[16/8]">
+          <Image
+            src="/images/hero-perspective.jpg"
+            alt="Two people reviewing work together at laptops"
+            fill
+            priority
+            sizes="(min-width: 1024px) 896px, 100vw"
+            className="object-cover"
+          />
+        </div>
       </Container>
     </section>
   );

@@ -1,7 +1,13 @@
+import Image from "next/image";
 import { Check } from "lucide-react";
 import { Container } from "@/components/container";
 import { SectionEyebrow } from "@/components/section-eyebrow";
-import { PlaceholderImage } from "@/components/placeholder-image";
+
+const AVATARS = [
+  { name: "Builder", src: "/images/founder-builder.png" },
+  { name: "Explorer", src: "/images/founder-explorer.png" },
+  { name: "Thinker", src: "/images/founder-thinker.png" },
+];
 
 const OBVIOUS = [
   "A process takes too long.",
@@ -52,10 +58,12 @@ export function Interruption() {
           </div>
 
           <div className="relative flex min-h-[22rem] flex-col justify-end overflow-hidden rounded-2xl">
-            <PlaceholderImage
-              label="three-founders.jpg"
-              labelPosition="top"
-              className="absolute inset-0"
+            <Image
+              src="/images/three-founders.jpg"
+              alt="People passing through a modern office lobby"
+              fill
+              sizes="(min-width: 1024px) 480px, 100vw"
+              className="object-cover"
             />
             <div
               className="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-midnight-900/90 to-transparent"
@@ -63,13 +71,18 @@ export function Interruption() {
             />
             <div className="relative flex flex-col gap-4 p-6">
               <div className="flex -space-x-3">
-                {["Builder", "Explorer", "Thinker"].map((name) => (
+                {AVATARS.map((avatar) => (
                   <span
-                    key={name}
-                    className="flex size-9 items-center justify-center rounded-full border-2 border-midnight-700 bg-lime-500 text-body-xs font-bold text-midnight-900"
-                    aria-hidden="true"
+                    key={avatar.name}
+                    className="relative size-9 overflow-hidden rounded-full border-2 border-midnight-700"
                   >
-                    {name[0]}
+                    <Image
+                      src={avatar.src}
+                      alt={avatar.name}
+                      fill
+                      sizes="36px"
+                      className="object-cover"
+                    />
                   </span>
                 ))}
               </div>

@@ -1,7 +1,7 @@
+import Image from "next/image";
 import { Bookmark } from "lucide-react";
 import { Container } from "@/components/container";
 import { SectionEyebrow } from "@/components/section-eyebrow";
-import { PlaceholderImage } from "@/components/placeholder-image";
 import { CtaButton } from "@/components/ui/cta-button";
 
 const FOUNDERS = [
@@ -9,19 +9,19 @@ const FOUNDERS = [
     name: "The Builder.",
     tagline: "Driven. Practical. Action-oriented.",
     body: "Sees the opportunity to make something better and get moving.",
-    image: "founder-builder.jpg",
+    image: "/images/founder-builder.png",
   },
   {
     name: "The Explorer.",
     tagline: "What could be different.",
     body: "Looks beyond the obvious and asks what else might be possible.",
-    image: "founder-explorer.jpg",
+    image: "/images/founder-explorer.png",
   },
   {
     name: "The Thinker.",
     tagline: "What matters.",
     body: "Looks beneath the surface to understand how things connect.",
-    image: "founder-thinker.jpg",
+    image: "/images/founder-thinker.png",
   },
 ];
 
@@ -48,10 +48,15 @@ export function ThreePerspectives() {
               key={founder.name}
               className="flex flex-col gap-5 rounded-2xl bg-midnight-800 p-5"
             >
-              <PlaceholderImage
-                label={founder.image}
-                className="aspect-[4/3] w-full rounded-xl"
-              />
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
+                <Image
+                  src={founder.image}
+                  alt={founder.name.replace(".", "")}
+                  fill
+                  sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
               <div className="flex flex-col gap-2">
                 <p className="text-heading-xs font-bold text-cloud-50">
                   {founder.name}
