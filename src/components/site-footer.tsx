@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { LinkedinLogo } from "@phosphor-icons/react/dist/ssr";
+import {
+  LinkedinLogo,
+  InstagramLogo,
+  EnvelopeSimple,
+} from "@phosphor-icons/react/dist/ssr";
 import type { Icon } from "@phosphor-icons/react";
 import { Logo } from "@/components/logo";
 import { Container } from "@/components/container";
@@ -28,8 +32,12 @@ const COLUMNS: {
     title: "Connect",
     links: [
       { label: "LinkedIn", href: "#", icon: LinkedinLogo },
-      { label: "Instagram", href: "#" },
-      { label: "Email", href: "mailto:hello@surely.com" },
+      { label: "Instagram", href: "#", icon: InstagramLogo },
+      {
+        label: "Email",
+        href: "mailto:hello@surely.com",
+        icon: EnvelopeSimple,
+      },
     ],
   },
 ];

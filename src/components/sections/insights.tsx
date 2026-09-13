@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Container } from "@/components/container";
 import { SectionEyebrow } from "@/components/section-eyebrow";
-import { PlaceholderImage } from "@/components/placeholder-image";
 import { InlineLink } from "@/components/inline-link";
 import { CtaButton } from "@/components/ui/cta-button";
 
@@ -23,7 +22,6 @@ const COMPACT_INSIGHTS = [
     author: "Founder 2",
     readTime: "4 min read",
     image: "insight-04.jpg",
-    real: true,
   },
 ];
 
@@ -45,10 +43,13 @@ export function Insights() {
 
         <div className="grid grid-cols-1 gap-6 lg:grid-cols-2">
           <article className="flex flex-col gap-5 rounded-2xl border border-cloud-600 p-5">
-            <div className="relative">
-              <PlaceholderImage
-                label="insight-featured.jpg"
-                className="aspect-[16/10] w-full rounded-xl"
+            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
+              <Image
+                src="/images/insight-featured.jpg"
+                alt="Team reviewing ideas pinned to a board"
+                fill
+                sizes="(min-width: 1024px) 540px, 100vw"
+                className="object-cover"
               />
               <span className="absolute top-4 left-4 rounded-full bg-lime-500 px-3 py-1 text-body-xs font-semibold text-midnight-900">
                 Featured insight
@@ -75,22 +76,15 @@ export function Insights() {
                 key={insight.title}
                 className="flex gap-4 rounded-2xl border border-cloud-600 p-5"
               >
-                {insight.real ? (
-                  <div className="relative aspect-square w-28 shrink-0 overflow-hidden rounded-xl sm:w-32">
-                    <Image
-                      src={`/images/${insight.image}`}
-                      alt={insight.title}
-                      fill
-                      sizes="128px"
-                      className="object-cover"
-                    />
-                  </div>
-                ) : (
-                  <PlaceholderImage
-                    label={insight.image}
-                    className="aspect-square w-28 shrink-0 rounded-xl sm:w-32"
+                <div className="relative aspect-square w-28 shrink-0 overflow-hidden rounded-xl sm:w-32">
+                  <Image
+                    src={`/images/${insight.image}`}
+                    alt={insight.title}
+                    fill
+                    sizes="128px"
+                    className="object-cover"
                   />
-                )}
+                </div>
                 <div className="flex flex-col justify-center gap-2">
                   <p className="text-body-lg font-bold text-midnight-800">
                     {insight.title}

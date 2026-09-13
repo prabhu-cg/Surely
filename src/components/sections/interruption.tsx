@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Check } from "lucide-react";
 import { Container } from "@/components/container";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 
@@ -22,16 +21,14 @@ const HARDER = [
   "That’s where Surely begins.",
 ];
 
-function BulletList({ title, items }: { title: string; items: string[] }) {
+function BulletCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="flex flex-col gap-4">
-      <p className="text-body-lg font-semibold text-midnight-800">{title}</p>
-      <ul className="flex flex-col gap-3">
+    <div className="flex flex-col gap-5 rounded-2xl bg-cloud-50 p-8 sm:p-10">
+      <p className="font-serif text-heading-xs text-midnight-800">{title}</p>
+      <ul className="flex flex-col gap-4">
         {items.map((item) => (
           <li key={item} className="flex items-start gap-3">
-            <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-sm bg-lime-500">
-              <Check className="size-3.5 text-midnight-900" strokeWidth={3} />
-            </span>
+            <span className="mt-2.5 size-2 shrink-0 rounded-full bg-lime-500" />
             <span className="text-body-md text-midnight-600">{item}</span>
           </li>
         ))}
@@ -42,25 +39,29 @@ function BulletList({ title, items }: { title: string; items: string[] }) {
 
 export function Interruption() {
   return (
-    <section className="bg-cloud-50 py-20 sm:py-28">
+    <section className="bg-midnight-900 py-20 sm:py-28">
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col gap-4">
-          <SectionEyebrow>The interruption</SectionEyebrow>
-          <h2 className="max-w-2xl text-heading-md font-extrabold text-midnight-800 uppercase sm:text-heading-lg">
+          <SectionEyebrow tone="light" className="text-midnight-300">
+            The interruption
+          </SectionEyebrow>
+          <h2 className="max-w-2xl text-heading-md font-extrabold text-midnight-400 uppercase sm:text-heading-lg">
             Something isn&rsquo;t working.
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-10 lg:grid-cols-3 lg:gap-8">
-          <BulletList title="Sometimes it’s obvious." items={OBVIOUS} />
-          <BulletList title="Sometimes it’s harder." items={HARDER} />
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-8">
+          <div className="flex flex-col gap-6">
+            <BulletCard title="Sometimes it’s obvious." items={OBVIOUS} />
+            <BulletCard title="Sometimes it’s harder." items={HARDER} />
+          </div>
 
-          <div className="relative aspect-[4/3] overflow-hidden rounded-2xl lg:aspect-auto lg:h-full lg:min-h-[22rem]">
+          <div className="relative overflow-hidden rounded-2xl aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[28rem]">
             <Image
               src="/images/three-founders.jpg"
               alt="People passing through a modern office lobby"
               fill
-              sizes="(min-width: 1024px) 360px, 100vw"
+              sizes="(min-width: 1024px) 500px, 100vw"
               className="object-cover"
             />
             <div

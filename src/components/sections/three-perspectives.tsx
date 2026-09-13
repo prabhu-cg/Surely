@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Bookmark } from "lucide-react";
+import { LinkedinLogo } from "@phosphor-icons/react/dist/ssr";
 import { Container } from "@/components/container";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 import { CtaButton } from "@/components/ui/cta-button";
@@ -68,16 +68,17 @@ export function ThreePerspectives() {
                   {founder.body}
                 </p>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center justify-between">
                 <CtaButton variant="lime" size="sm" href="#about">
                   Explore
                 </CtaButton>
-                <button
+                <a
+                  href="#"
                   className="flex size-9 shrink-0 items-center justify-center rounded-full bg-midnight-500 text-cloud-50 transition-colors hover:bg-midnight-400"
-                  aria-label={`Save ${founder.name}`}
+                  aria-label={`${founder.name.replace(".", "")} on LinkedIn`}
                 >
-                  <Bookmark className="size-4" strokeWidth={1.75} />
-                </button>
+                  <LinkedinLogo className="size-4" weight="fill" />
+                </a>
               </div>
             </div>
           ))}
