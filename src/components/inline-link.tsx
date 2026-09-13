@@ -17,7 +17,7 @@ export function InlineLink({
     <Link
       href={href}
       className={cn(
-        "group inline-flex items-center gap-1.5 text-body-sm font-semibold transition-colors",
+        "group relative inline-flex items-center gap-1.5 pb-1.5 text-body-sm font-semibold transition-colors",
         tone === "dark"
           ? "text-midnight-800 hover:text-lime-700"
           : "text-cloud-50 hover:text-lime-400",
@@ -29,6 +29,7 @@ export function InlineLink({
         className="size-3.5 transition-transform group-hover:translate-x-0.5"
         weight="bold"
       />
+      <span className="absolute inset-x-0 -bottom-0.5 h-1 origin-left scale-x-0 rounded-full bg-lime-500 transition-transform duration-200 ease-out group-hover:scale-x-100" />
     </Link>
   );
 }

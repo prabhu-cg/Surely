@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { Container } from "@/components/container";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 import { InlineLink } from "@/components/inline-link";
@@ -56,9 +57,13 @@ export function Insights() {
               </span>
             </div>
             <div className="flex flex-col gap-3">
-              <p className="text-heading-xs font-bold text-midnight-800">
+              <Link
+                href="#insights"
+                className="group relative inline-block w-fit pb-1 text-heading-xs font-bold text-midnight-800 transition-colors hover:text-lime-700"
+              >
                 Why do we still do it this way?
-              </p>
+                <span className="absolute inset-x-0 -bottom-0.5 h-1 origin-left scale-x-0 rounded-full bg-lime-500 transition-transform duration-200 ease-out group-hover:scale-x-100" />
+              </Link>
               <p className="text-body-md text-midnight-600">
                 The most interesting problems often begin with something
                 that feels normal. Until you look closer.
@@ -86,9 +91,13 @@ export function Insights() {
                   />
                 </div>
                 <div className="flex flex-col justify-center gap-2">
-                  <p className="text-body-lg font-bold text-midnight-800">
+                  <Link
+                    href="#insights"
+                    className="group relative inline-block w-fit pb-1 text-body-lg font-bold text-midnight-800 transition-colors hover:text-lime-700"
+                  >
                     {insight.title}
-                  </p>
+                    <span className="absolute inset-x-0 -bottom-0.5 h-1 origin-left scale-x-0 rounded-full bg-lime-500 transition-transform duration-200 ease-out group-hover:scale-x-100" />
+                  </Link>
                   <p className="text-body-sm text-midnight-400">
                     {insight.author} · {insight.readTime}
                   </p>

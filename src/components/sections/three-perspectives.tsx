@@ -74,7 +74,7 @@ export function ThreePerspectives() {
                 </CtaButton>
                 <a
                   href="#"
-                  className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-cloud-600 bg-cloud-50 text-midnight-900 transition-colors hover:border-midnight-500"
+                  className="flex size-12 shrink-0 items-center justify-center rounded-[10px] border border-cloud-600 bg-cloud-50 text-midnight-900 transition-all duration-200 ease-out hover:scale-[1.03] hover:border-lime-500 hover:bg-lime-500"
                   aria-label={`${founder.name.replace(".", "")} on LinkedIn`}
                 >
                   <LinkedinLogo className="size-5" weight="regular" />
