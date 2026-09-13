@@ -69,7 +69,7 @@ export function Interruption() {
               aria-hidden="true"
             />
             <div className="relative flex h-full flex-col justify-end gap-4 p-6">
-              <div className="ml-auto flex -space-x-3">
+              <div className="flex -space-x-3">
                 {AVATARS.map((avatar) => (
                   <span
                     key={avatar.name}
