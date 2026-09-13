@@ -59,7 +59,7 @@ export function Insights() {
             <div className="flex flex-col gap-3">
               <Link
                 href="#insights"
-                className="inline-block w-fit text-heading-xs font-bold text-midnight-800 underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-lime-700 hover:decoration-lime-500"
+                className="inline-block w-fit text-heading-xs font-bold text-midnight-800 underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-lime-500"
               >
                 Why do we still do it this way?
               </Link>
@@ -92,7 +92,7 @@ export function Insights() {
                 <div className="flex flex-col justify-center gap-2">
                   <Link
                     href="#insights"
-                    className="inline-block w-fit text-body-lg font-bold text-midnight-800 underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:text-lime-700 hover:decoration-lime-500"
+                    className="inline-block w-fit text-body-lg font-bold text-midnight-800 underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-lime-500"
                   >
                     {insight.title}
                   </Link>

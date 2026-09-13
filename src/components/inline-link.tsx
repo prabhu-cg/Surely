@@ -17,10 +17,8 @@ export function InlineLink({
     <Link
       href={href}
       className={cn(
-        "group inline-flex items-center gap-1.5 text-body-sm font-semibold transition-colors",
-        tone === "dark"
-          ? "text-midnight-800 hover:text-lime-700"
-          : "text-cloud-50 hover:text-lime-400",
+        "group inline-flex items-center gap-1.5 text-body-sm font-semibold",
+        tone === "dark" ? "text-midnight-800" : "text-cloud-50",
         className
       )}
     >
@@ -28,7 +26,7 @@ export function InlineLink({
         className={cn(
           "underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200",
           tone === "dark"
-            ? "group-hover:decoration-lime-700"
+            ? "group-hover:decoration-lime-500"
             : "group-hover:decoration-lime-400"
         )}
       >

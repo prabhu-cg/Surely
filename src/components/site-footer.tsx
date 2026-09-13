@@ -65,7 +65,7 @@ export function SiteFooter() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="group inline-flex items-center gap-2 text-body-sm text-cloud-100 transition-colors hover:text-lime-400"
+                    className="group inline-flex items-center gap-2 text-body-sm text-cloud-100"
                   >
                     {link.icon ? <link.icon className="size-4" /> : null}
                     <span className="underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 group-hover:decoration-lime-400">
