@@ -33,7 +33,6 @@ export function SurelyShift() {
           <p className="text-body-lg font-semibold text-midnight-800">
             Most systems make sense when you look at them from inside.
           </p>
-          <span className="h-0.5 w-16 rounded-full bg-lime-500" />
           <ul className="flex flex-col">
             {STEPS.map((step, index) => (
               <li
