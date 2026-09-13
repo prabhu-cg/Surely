@@ -23,7 +23,7 @@ const HARDER = [
 
 function BulletCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="flex flex-col gap-5 rounded-2xl bg-cloud-50 p-8 sm:p-10">
+    <div className="flex flex-col gap-5 rounded-2xl border border-cloud-600 bg-cloud-50 p-8 sm:p-10">
       <p className="font-serif text-heading-xs text-midnight-800">{title}</p>
       <ul className="flex flex-col gap-4">
         {items.map((item) => (
@@ -39,13 +39,11 @@ function BulletCard({ title, items }: { title: string; items: string[] }) {
 
 export function Interruption() {
   return (
-    <section className="bg-midnight-900 py-20 sm:py-28">
+    <section className="bg-cloud-100 py-20 sm:py-28">
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col gap-4">
-          <SectionEyebrow tone="light" className="text-midnight-300">
-            The interruption
-          </SectionEyebrow>
-          <h2 className="max-w-2xl text-heading-md font-extrabold text-midnight-400 uppercase sm:text-heading-lg">
+          <SectionEyebrow>The interruption</SectionEyebrow>
+          <h2 className="max-w-2xl text-heading-md font-extrabold text-midnight-800 uppercase sm:text-heading-lg">
             Something isn&rsquo;t working.
           </h2>
         </div>
