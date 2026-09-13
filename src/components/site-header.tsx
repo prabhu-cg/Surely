@@ -38,9 +38,7 @@ export function SiteHeader() {
         </nav>
 
         <div className="hidden lg:block">
-          <CtaButton href="#talk" size="sm">
-            Let&rsquo;s talk
-          </CtaButton>
+          <CtaButton href="#talk">Let&rsquo;s talk</CtaButton>
         </div>
 
         <Sheet open={open} onOpenChange={setOpen}>

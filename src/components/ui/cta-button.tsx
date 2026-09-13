@@ -5,7 +5,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const ctaButtonVariants = cva(
-  "group inline-flex items-center gap-2.5 rounded-full px-6 py-3 font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cloud-50",
+  "group inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-body-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cloud-50 sm:text-body-md",
   {
     variants: {
       variant: {
@@ -14,14 +14,9 @@ const ctaButtonVariants = cva(
         outline:
           "border border-cloud-600 bg-transparent text-midnight-800 hover:border-midnight-500",
       },
-      size: {
-        default: "text-body-sm sm:text-body-md",
-        sm: "px-5 py-2 text-body-sm",
-      },
     },
     defaultVariants: {
       variant: "dark",
-      size: "default",
     },
   }
 );
@@ -34,7 +29,6 @@ type CtaButtonProps = React.ComponentProps<"button"> &
 export function CtaButton({
   className,
   variant = "dark",
-  size = "default",
   href,
   children,
   ...props
@@ -49,7 +43,7 @@ export function CtaButton({
     </>
   );
 
-  const classes = cn(ctaButtonVariants({ variant, size, className }));
+  const classes = cn(ctaButtonVariants({ variant, className }));
 
   if (href) {
     return (

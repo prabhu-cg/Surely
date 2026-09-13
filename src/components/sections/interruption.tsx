@@ -48,7 +48,7 @@ export function Interruption() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1fr_1.1fr] lg:gap-8">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[1.15fr_1fr] lg:gap-8">
           <div className="flex flex-col gap-6">
             <BulletCard title="Sometimes it’s obvious." items={OBVIOUS} />
             <BulletCard title="Sometimes it’s harder." items={HARDER} />
@@ -67,6 +67,10 @@ export function Interruption() {
               aria-hidden="true"
             />
             <div className="relative flex h-full flex-col justify-end gap-4 p-6">
+              <p className="font-serif text-heading-xs text-cloud-50 italic">
+                &ldquo;We don&rsquo;t believe every problem needs a bigger
+                solution. Sometimes it needs a better question.&rdquo;
+              </p>
               <div className="flex -space-x-3">
                 {AVATARS.map((avatar) => (
                   <span
@@ -83,10 +87,6 @@ export function Interruption() {
                   </span>
                 ))}
               </div>
-              <p className="font-serif text-heading-xs text-cloud-50 italic">
-                &ldquo;We don&rsquo;t believe every problem needs a bigger
-                solution. Sometimes it needs a better question.&rdquo;
-              </p>
             </div>
           </div>
         </div>

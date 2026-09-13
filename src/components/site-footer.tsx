@@ -49,7 +49,7 @@ export function SiteFooter() {
     <footer className="bg-midnight-700 text-cloud-100">
       <Container className="grid grid-cols-1 gap-12 py-16 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-8">
         <div className="flex flex-col gap-4">
-          <Logo className="h-5 text-cloud-50" />
+          <Logo className="h-5 w-auto self-start text-cloud-50" />
           <p className="text-body-sm text-midnight-100">
             There must be a better way.
           </p>

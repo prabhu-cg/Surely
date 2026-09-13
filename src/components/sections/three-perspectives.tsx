@@ -69,15 +69,15 @@ export function ThreePerspectives() {
                 </p>
               </div>
               <div className="flex items-center justify-between">
-                <CtaButton variant="lime" size="sm" href="#about">
+                <CtaButton variant="lime" href="#about">
                   Explore
                 </CtaButton>
                 <a
                   href="#"
-                  className="flex size-11 shrink-0 items-center justify-center rounded-full bg-midnight-500 text-cloud-50 transition-colors hover:bg-midnight-400"
+                  className="flex size-12 shrink-0 items-center justify-center rounded-xl border border-cloud-600 bg-cloud-50 text-midnight-900 transition-colors hover:border-midnight-500"
                   aria-label={`${founder.name.replace(".", "")} on LinkedIn`}
                 >
-                  <LinkedinLogo className="size-5" weight="fill" />
+                  <LinkedinLogo className="size-5" weight="regular" />
                 </a>
               </div>
             </div>
