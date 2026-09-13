@@ -5,14 +5,14 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const ctaButtonVariants = cva(
-  "group inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-body-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cloud-50 sm:text-body-md",
+  "group inline-flex items-center gap-2.5 rounded-full px-6 py-3 text-body-sm font-semibold transition-all duration-200 ease-out will-change-transform hover:scale-[1.03] active:scale-[0.97] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:ring-offset-2 focus-visible:ring-offset-cloud-50 sm:text-body-md",
   {
     variants: {
       variant: {
-        dark: "bg-midnight-500 text-cloud-50 hover:bg-midnight-400",
-        lime: "bg-lime-500 text-midnight-900 hover:bg-lime-400",
+        dark: "bg-midnight-500 text-cloud-50 hover:bg-lime-500 hover:text-midnight-900",
+        lime: "bg-lime-500 text-midnight-900 hover:bg-cloud-50 hover:text-midnight-900",
         outline:
-          "border border-cloud-600 bg-transparent text-midnight-800 hover:border-midnight-500",
+          "border border-cloud-600 bg-transparent text-midnight-800 hover:border-midnight-800 hover:bg-midnight-800 hover:text-cloud-50",
       },
     },
     defaultVariants: {
@@ -37,7 +37,7 @@ export function CtaButton({
     <>
       <span>{children}</span>
       <ArrowRight
-        className="size-4 shrink-0 transition-transform group-hover:translate-x-0.5"
+        className="size-4 shrink-0 transition-transform duration-200 ease-out group-hover:translate-x-1"
         weight="bold"
       />
     </>
