@@ -67,8 +67,8 @@ export function Interruption() {
               aria-hidden="true"
             />
             <div className="relative flex h-full flex-col justify-end gap-4 p-6">
-              <p className="font-serif text-heading-xs italic">
-                <mark className="box-decoration-clone bg-lime-100 px-1.5 py-1 text-midnight-900">
+              <p className="font-serif text-heading-xs leading-[2.25rem] italic">
+                <mark className="box-decoration-clone bg-lime-100 px-1.5 py-1.5 text-midnight-900">
                   &ldquo;We don&rsquo;t believe every problem needs a bigger
                   solution. Sometimes it needs a better question.&rdquo;
                 </mark>
