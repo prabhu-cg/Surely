@@ -1,5 +1,9 @@
 // Imported from the previous Surely site problem bank (54 of 68 problems).
-// "Why it matters" and "What people currently do" are intentionally excluded.
+// "Why it matters" and "What people currently do" are intentionally excluded:
+// on the old site those two fields were bound to the wrong problem (a Wix
+// repeater bug), so reproducing them here would ship incorrect claims.
+// `count` is the old site's "N people have this problem" tally, which was
+// bound correctly and is safe to reuse.
 export type ProblemRecord = {
   slug: string;
   title: string;
@@ -7,11 +11,13 @@ export type ProblemRecord = {
   area: "Life" | "Work";
   statement: string;
   evidence: string;
+  count: number;
 };
 
 export const PROBLEM_RECORDS: ProblemRecord[] = [
   {
     slug: "working-out-what-to-do-when-a-product-or-appliance-breaks",
+    count: 1,
     title: "Working out what to do when a product or appliance breaks",
     topic: "Shopping",
     area: "Life",
@@ -20,6 +26,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "checking-whether-a-council-tax-band-is-wrong",
+    count: 1,
     title: "Checking whether a Council Tax band is wrong",
     topic: "Home",
     area: "Life",
@@ -28,6 +35,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "keeping-track-of-car-admin-and-renewal-dates",
+    count: 1,
     title: "Keeping track of car admin and renewal dates",
     topic: "Life Admin",
     area: "Life",
@@ -36,6 +44,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "dealing-with-admin-after-someone-dies",
+    count: 2,
     title: "Dealing with admin after someone dies",
     topic: "Family",
     area: "Life",
@@ -44,6 +53,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "too-much-work-time-is-lost-to-admin",
+    count: 2,
     title: "Too much work time is lost to admin",
     topic: "Small Business",
     area: "Work",
@@ -52,6 +62,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "keeping-funded-childcare-eligibility-active",
+    count: 2,
     title: "Keeping funded-childcare eligibility active",
     topic: "Family",
     area: "Life",
@@ -60,6 +71,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "finding-an-nhs-dentist-accepting-patients",
+    count: 4,
     title: "Finding an NHS dentist accepting patients",
     topic: "Health",
     area: "Life",
@@ -68,6 +80,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "getting-a-practical-driving-test-slot",
+    count: 2,
     title: "Getting a practical driving-test slot",
     topic: "Life Admin",
     area: "Life",
@@ -76,6 +89,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "remembering-to-claim-train-delay-compensation",
+    count: 1,
     title: "Remembering to claim train-delay compensation",
     topic: "Money & Bills",
     area: "Life",
@@ -84,6 +98,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "working-out-why-an-energy-bill-is-wrong",
+    count: 1,
     title: "Working out why an energy bill is wrong",
     topic: "Money & Bills",
     area: "Life",
@@ -92,6 +107,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "keeping-track-of-passwords-and-authentication-methods",
+    count: 3,
     title: "Keeping track of passwords and authentication methods",
     topic: "Digital Life",
     area: "Life",
@@ -100,6 +116,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "choosing-whether-to-fix-or-switch-an-energy-tariff",
+    count: 1,
     title: "Choosing whether to fix or switch an energy tariff",
     topic: "Money & Bills",
     area: "Life",
@@ -108,6 +125,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "re-entering-cv-information-into-job-applications",
+    count: 2,
     title: "Re-entering CV information into job applications",
     topic: "Digital Life",
     area: "Life",
@@ -116,6 +134,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "weekly-meal-planning-is-exhausting",
+    count: 4,
     title: "Weekly meal planning is exhausting",
     topic: "Family",
     area: "Life",
@@ -124,6 +143,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "understanding-what-pet-insurance-really-covers",
+    count: 3,
     title: "Understanding what pet insurance really covers",
     topic: "Family",
     area: "Life",
@@ -132,6 +152,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "understanding-and-managing-a-home-insurance-claim",
+    count: 2,
     title: "Understanding and managing a home-insurance claim",
     topic: "Money & Bills",
     area: "Life",
@@ -140,6 +161,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "knowing-what-home-maintenance-needs-doing-and-when",
+    count: 2,
     title: "Knowing what home maintenance needs doing and when",
     topic: "Home",
     area: "Life",
@@ -148,6 +170,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "challenging-unfair-tenancy-deposit-deductions",
+    count: 1,
     title: "Challenging unfair tenancy-deposit deductions",
     topic: "Home",
     area: "Life",
@@ -156,6 +179,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "working-out-whether-an-insurance-renewal-is-good-value",
+    count: 1,
     title: "Working out whether an insurance renewal is good value",
     topic: "Money & Bills",
     area: "Life",
@@ -164,6 +188,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "knowing-whether-an-online-message-listing-or-person-is-genuine-or-a-scam",
+    count: 1,
     title: "Knowing whether an online message, listing or person is genuine or a scam",
     topic: "Digital Life",
     area: "Life",
@@ -172,6 +197,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "unused-subscriptions-keep-costing-money",
+    count: 1,
     title: "Unused subscriptions keep costing money",
     topic: "Money & Bills",
     area: "Life",
@@ -180,6 +206,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "keeping-on-top-of-household-and-life-admin",
+    count: 3,
     title: "Keeping on top of household and life admin",
     topic: "Life Admin",
     area: "Life",
@@ -188,6 +215,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "managing-repeat-prescriptions-every-month",
+    count: 2,
     title: "Managing repeat prescriptions every month",
     topic: "Health",
     area: "Life",
@@ -196,6 +224,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "understanding-and-challenging-private-parking-charges",
+    count: 2,
     title: "Understanding and challenging private parking charges",
     topic: "Money & Bills",
     area: "Life",
@@ -204,6 +233,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "managing-the-admin-of-caring-for-an-ageing-parent",
+    count: 1,
     title: "Managing the admin of caring for an ageing parent",
     topic: "Family",
     area: "Life",
@@ -212,6 +242,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "knowing-whether-a-passport-is-valid-for-a-destination",
+    count: 1,
     title: "Knowing whether a passport is valid for a destination",
     topic: "Travel",
     area: "Life",
@@ -220,6 +251,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "claiming-back-work-expenses",
+    count: 1,
     title: "Claiming back work expenses",
     topic: "Work",
     area: "Work",
@@ -228,6 +260,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "online-returns-are-unnecessarily-complicated",
+    count: 1,
     title: "Online returns are unnecessarily complicated",
     topic: "Shopping",
     area: "Life",
@@ -236,6 +269,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "finding-a-reliable-tradesperson",
+    count: 2,
     title: "Finding a reliable tradesperson",
     topic: "Home",
     area: "Life",
@@ -244,6 +278,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "finding-childcare-that-fits-real-working-life",
+    count: 3,
     title: "Finding childcare that fits real working life",
     topic: "Family",
     area: "Life",
@@ -252,6 +287,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "finding-pensions-from-previous-jobs",
+    count: 1,
     title: "Finding pensions from previous jobs",
     topic: "Money & Bills",
     area: "Life",
@@ -260,6 +296,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "chasing-overdue-business-invoices",
+    count: 1,
     title: "Chasing overdue business invoices",
     topic: "Small Business",
     area: "Work",
@@ -268,6 +305,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "customer-service-problems-take-hours-to-resolve",
+    count: 1,
     title: "Customer-service problems take hours to resolve",
     topic: "Life Admin",
     area: "Life",
@@ -276,6 +314,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "claiming-for-delayed-or-lost-airline-baggage",
+    count: 1,
     title: "Claiming for delayed or lost airline baggage",
     topic: "Travel",
     area: "Life",
@@ -284,6 +323,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "too-many-different-parking-apps",
+    count: 1,
     title: "Too many different parking apps",
     topic: "Digital Life",
     area: "Life",
@@ -292,6 +332,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "knowing-which-permissions-a-home-alteration-needs",
+    count: 1,
     title: "Knowing which permissions a home alteration needs",
     topic: "Home",
     area: "Life",
@@ -300,6 +341,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "planning-a-group-holiday-becomes-project-management",
+    count: 1,
     title: "Planning a group holiday becomes project management",
     topic: "Travel",
     area: "Life",
@@ -308,6 +350,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "understanding-mobile-roaming-costs-before-travelling",
+    count: 3,
     title: "Understanding mobile-roaming costs before travelling",
     topic: "Money & Bills",
     area: "Life",
@@ -316,6 +359,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "knowing-what-can-actually-be-recycled-locally",
+    count: 2,
     title: "Knowing what can actually be recycled locally",
     topic: "Home",
     area: "Life",
@@ -324,6 +368,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "claiming-what-you-are-owed-after-a-delayed-or-cancelled-flight",
+    count: 1,
     title: "Claiming what you are owed after a delayed or cancelled flight",
     topic: "Travel",
     area: "Life",
@@ -332,6 +377,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "public-ev-charging-is-fragmented-and-confusing",
+    count: 1,
     title: "Public EV charging is fragmented and confusing",
     topic: "Travel",
     area: "Life",
@@ -340,6 +386,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "buying-a-used-car-feels-like-guesswork",
+    count: 2,
     title: "Buying a used car feels like guesswork",
     topic: "Shopping",
     area: "Life",
@@ -348,6 +395,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "train-fares-are-unnecessarily-difficult-to-understand",
+    count: 1,
     title: "Train fares are unnecessarily difficult to understand",
     topic: "Travel",
     area: "Life",
@@ -356,6 +404,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "choosing-the-right-care-home-for-a-parent",
+    count: 1,
     title: "Choosing the right care home for a parent",
     topic: "Family",
     area: "Life",
@@ -364,6 +413,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "working-out-which-government-support-you-can-claim",
+    count: 2,
     title: "Working out which government support you can claim",
     topic: "Money & Bills",
     area: "Life",
@@ -372,6 +422,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "understanding-whether-an-hmrc-tax-code-is-correct",
+    count: 1,
     title: "Understanding whether an HMRC tax code is correct",
     topic: "Money & Bills",
     area: "Life",
@@ -380,6 +431,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "buying-school-uniform-is-expensive-and-restrictive",
+    count: 5,
     title: "Buying school uniform is expensive and restrictive",
     topic: "Education",
     area: "Life",
@@ -388,6 +440,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "not-knowing-what-is-happening-in-a-property-chain",
+    count: 1,
     title: "Not knowing what is happening in a property chain",
     topic: "Home",
     area: "Life",
@@ -396,6 +449,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "chasing-lost-or-failed-parcel-deliveries",
+    count: 3,
     title: "Chasing lost or failed parcel deliveries",
     topic: "Shopping",
     area: "Life",
@@ -404,6 +458,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "getting-landlords-to-complete-repairs",
+    count: 2,
     title: "Getting landlords to complete repairs",
     topic: "Home",
     area: "Life",
@@ -412,6 +467,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "too-many-school-apps-and-communication-channels",
+    count: 3,
     title: "Too many school apps and communication channels",
     topic: "Education",
     area: "Life",
@@ -420,6 +476,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "updating-everyone-when-you-move-house",
+    count: 1,
     title: "Updating everyone when you move house",
     topic: "Life Admin",
     area: "Life",
@@ -428,6 +485,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "broadband-renewals-make-customers-negotiate-to-avoid-overpaying",
+    count: 1,
     title: "Broadband renewals make customers negotiate to avoid overpaying",
     topic: "Money & Bills",
     area: "Life",
@@ -436,6 +494,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "understanding-and-challenging-leasehold-service-charges",
+    count: 2,
     title: "Understanding and challenging leasehold service charges",
     topic: "Money & Bills",
     area: "Life",
@@ -444,6 +503,7 @@ export const PROBLEM_RECORDS: ProblemRecord[] = [
   },
   {
     slug: "my-ai-prompts-get-longer-and-harder-to-manage",
+    count: 4,
     title: "My AI prompts get longer and harder to manage",
     topic: "Digital Life",
     area: "Life",

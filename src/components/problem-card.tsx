@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "@phosphor-icons/react/dist/ssr";
+import { ArrowUpRight, UsersThree } from "@phosphor-icons/react/dist/ssr";
 import { Highlight } from "@/components/highlight";
 import type { Problem } from "@/lib/problems";
 
@@ -31,15 +31,21 @@ export function ProblemCard({
           <Highlight text={problem.statement} query={query} />
         </p>
       </div>
-      <span className="inline-flex items-center gap-1.5 text-body-sm font-semibold text-midnight-800">
-        <span className="underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 group-hover:decoration-lime-500">
-          See the problem
+      <div className="flex items-center justify-between gap-3">
+        <span className="inline-flex items-center gap-1.5 text-body-xs font-semibold text-midnight-400">
+          <UsersThree className="size-4" weight="regular" />
+          {problem.count === 1 ? "1 person" : `${problem.count} people`}
         </span>
-        <ArrowUpRight
-          className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-          weight="bold"
-        />
-      </span>
+        <span className="inline-flex items-center gap-1.5 text-body-sm font-semibold text-midnight-800">
+          <span className="underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 group-hover:decoration-lime-500">
+            See the problem
+          </span>
+          <ArrowUpRight
+            className="size-3.5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+            weight="bold"
+          />
+        </span>
+      </div>
     </Link>
   );
 }
