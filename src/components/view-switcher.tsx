@@ -21,7 +21,7 @@ export function ViewSwitcher({
     <div
       role="radiogroup"
       aria-label="View as"
-      className="inline-flex rounded-full border border-cloud-600 bg-cloud-100 p-1"
+      className="hidden rounded-full border border-cloud-600 bg-cloud-100 p-1 sm:inline-flex"
     >
       {VIEWS.map(([v, Icon, label]) => (
         <button

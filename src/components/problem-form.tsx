@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { EnvelopeSimple, CheckCircle } from "@phosphor-icons/react/dist/ssr";
+import { CaretDown, EnvelopeSimple, CheckCircle } from "@phosphor-icons/react/dist/ssr";
 import { cn } from "@/lib/utils";
 import { CtaButton } from "@/components/ui/cta-button";
 import { SITE } from "@/lib/site";
@@ -47,6 +47,15 @@ const REQUIRED: { key: keyof Fields; message: string }[] = [
 
 const inputClass =
   "w-full rounded-xl border border-cloud-600 bg-cloud-50 px-4 py-3 text-body-md text-midnight-800 placeholder:text-cloud-800 transition-colors duration-200 hover:border-midnight-300 focus-visible:border-midnight-800 focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:outline-none aria-invalid:border-destructive";
+
+const FREQUENCIES = [
+  "Daily",
+  "A few times a week",
+  "Weekly",
+  "Monthly",
+  "Occasionally",
+  "It's happened once",
+] as const;
 
 function buildMailto(f: Fields, from?: string) {
   const subject = `Problem: ${f.problem.trim().slice(0, 80)}`;
@@ -112,7 +121,7 @@ export function ProblemForm() {
 
   const set =
     (key: FieldKey) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       const value = e.target.type === "checkbox" ? (e.target as HTMLInputElement).checked : e.target.value;
       setFields((f) => ({ ...f, [key]: value }));
       if (errors[key]) setErrors((er) => ({ ...er, [key]: undefined }));
@@ -205,8 +214,8 @@ export function ProblemForm() {
         <ErrorText id="happens-error">{errors.happens}</ErrorText>
       </div>
 
-      <fieldset className="flex flex-col gap-3" aria-describedby={errors.area ? "area-error" : undefined}>
-        <legend className="text-body-md font-semibold text-midnight-800">
+      <fieldset className="flex flex-col gap-2" aria-describedby={errors.area ? "area-error" : undefined}>
+        <legend className="mb-2 text-body-md font-semibold text-midnight-800">
           Is this about work or life?
         </legend>
         <div className="flex flex-wrap gap-2">
@@ -245,32 +254,45 @@ export function ProblemForm() {
         <ErrorText id="instead-error">{errors.instead}</ErrorText>
       </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="flex flex-col gap-8">
         <div className="flex flex-col gap-2">
           <Label htmlFor="frustrating">What&rsquo;s the most frustrating part?</Label>
-          <input
+          <textarea
             id="frustrating"
-            type="text"
+            rows={3}
             value={fields.frustrating}
             onChange={set("frustrating")}
             aria-invalid={!!errors.frustrating}
             aria-describedby={errors.frustrating ? "frustrating-error" : undefined}
-            className={inputClass}
+            className={cn(inputClass, "resize-y")}
           />
           <ErrorText id="frustrating-error">{errors.frustrating}</ErrorText>
         </div>
         <div className="flex flex-col gap-2">
           <Label htmlFor="frequency">How often does this happen?</Label>
-          <input
-            id="frequency"
-            type="text"
-            value={fields.frequency}
-            onChange={set("frequency")}
-            placeholder="Daily, monthly, once a year"
-            aria-invalid={!!errors.frequency}
-            aria-describedby={errors.frequency ? "frequency-error" : undefined}
-            className={inputClass}
-          />
+          <div className="relative">
+            <select
+              id="frequency"
+              value={fields.frequency}
+              onChange={set("frequency")}
+              aria-invalid={!!errors.frequency}
+              aria-describedby={errors.frequency ? "frequency-error" : undefined}
+              className={cn(inputClass, "appearance-none pr-11", !fields.frequency && "text-cloud-800")}
+            >
+              <option value="" disabled>
+                Select how often
+              </option>
+              {FREQUENCIES.map((f) => (
+                <option key={f} value={f} className="text-midnight-800">
+                  {f}
+                </option>
+              ))}
+            </select>
+            <CaretDown
+              className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-midnight-400"
+              weight="bold"
+            />
+          </div>
           <ErrorText id="frequency-error">{errors.frequency}</ErrorText>
         </div>
       </div>

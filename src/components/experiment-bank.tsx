@@ -286,7 +286,20 @@ export function ExperimentBank() {
               ))}
             </ul>
           ) : (
-            <ExperimentTable experiments={pageItems} query={query} />
+            <>
+              <ul className="grid grid-cols-1 gap-4 sm:hidden">
+                {pageItems.map((e, i) => (
+                  <li key={e.slug}>
+                    <Reveal delay={(i % PAGE_SIZE) * 50} className="h-full">
+                      <ExperimentCard experiment={e} />
+                    </Reveal>
+                  </li>
+                ))}
+              </ul>
+              <div className="hidden sm:block">
+                <ExperimentTable experiments={pageItems} query={query} />
+              </div>
+            </>
           )}
 
           <Pagination page={safePage} totalPages={totalPages} onChange={setPage} label="Experiment bank pages" />

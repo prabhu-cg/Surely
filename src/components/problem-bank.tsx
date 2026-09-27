@@ -238,7 +238,20 @@ export function ProblemBank() {
               ))}
             </ul>
           ) : (
-            <ProblemTable problems={pageItems} query={query} />
+            <>
+              <ul className="grid grid-cols-1 gap-4 sm:hidden">
+                {pageItems.map((p, i) => (
+                  <li key={p.slug}>
+                    <Reveal delay={(i % PAGE_SIZE) * 50} className="h-full">
+                      <ProblemCard problem={p} query={query} />
+                    </Reveal>
+                  </li>
+                ))}
+              </ul>
+              <div className="hidden sm:block">
+                <ProblemTable problems={pageItems} query={query} />
+              </div>
+            </>
           )}
 
           <Pagination page={safePage} totalPages={totalPages} onChange={setPage} label="Problem bank pages" />
