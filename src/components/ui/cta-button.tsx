@@ -24,12 +24,15 @@ const ctaButtonVariants = cva(
 type CtaButtonProps = React.ComponentProps<"button"> &
   VariantProps<typeof ctaButtonVariants> & {
     href?: string;
+    /** Renders a plain `<a target="_blank">` instead of next/link, for links off-site. */
+    external?: boolean;
   };
 
 export function CtaButton({
   className,
   variant = "dark",
   href,
+  external,
   children,
   ...props
 }: CtaButtonProps) {
@@ -44,6 +47,14 @@ export function CtaButton({
   );
 
   const classes = cn(ctaButtonVariants({ variant, className }));
+
+  if (href && external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={classes}>
+        {content}
+      </a>
+    );
+  }
 
   if (href) {
     return (

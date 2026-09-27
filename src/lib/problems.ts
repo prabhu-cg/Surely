@@ -1,5 +1,4 @@
 import { PROBLEM_RECORDS, type ProblemRecord } from "@/data/problems";
-import { EXPERIMENTS } from "@/lib/site";
 
 export type Problem = ProblemRecord;
 
@@ -21,10 +20,6 @@ export function relatedProblems(problem: Problem, limit = 3) {
     (p) => p.slug !== problem.slug && p.topic !== problem.topic
   );
   return [...same, ...rest].slice(0, limit);
-}
-
-export function experimentForProblem(slug: string) {
-  return EXPERIMENTS.find((e) => e.problem === slug);
 }
 
 /** Splits an evidence paragraph into items that each end with a (Source) tag. */

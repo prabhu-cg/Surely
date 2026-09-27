@@ -16,43 +16,4 @@ export const NAV_LINKS = [
   { label: "About", href: "/about" },
 ] as const;
 
-export type Experiment = {
-  slug: string;
-  name: string;
-  tag: string;
-  summary: string;
-  detail: string;
-  problem?: string; // problem slug this began as
-};
-
-export const EXPERIMENTS: Experiment[] = [
-  {
-    slug: "lifeadmin",
-    name: "LifeAdmin",
-    tag: "LifeTech",
-    summary:
-      "A household admin assistant that organises bills, renewals, documents and important dates.",
-    detail:
-      "Reminders for what is coming up and savings tracking for what you are overpaying, so life admin stops living in your head.",
-    problem: "keeping-on-top-of-household-and-life-admin",
-  },
-  {
-    slug: "prompttrim",
-    name: "PromptTrim",
-    tag: "AITech",
-    summary:
-      "Condenses messy prompts into short, direct instructions while keeping every requirement.",
-    detail:
-      "Paste the long version. Get back the version you would have written if you had more time.",
-    problem: "my-ai-prompts-get-longer-and-harder-to-manage",
-  },
-  {
-    slug: "solvr",
-    name: "Solvr",
-    tag: "DesignTech",
-    summary:
-      "A guided design workspace with seven structured stages and AI-powered drafting and scoring.",
-    detail:
-      "It slows you down at the start, on purpose, so you know the real problem before you pick a solution.",
-  },
-];
+export { EXPERIMENTS, type Experiment } from "@/lib/experiments";

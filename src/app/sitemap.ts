@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/site";
 import { PROBLEMS } from "@/lib/problems";
+import { EXPERIMENTS } from "@/lib/experiments";
 
 export const dynamic = "force-static";
 
@@ -16,6 +17,7 @@ const ROUTES = [
   "/terms",
   "/cookies",
   ...PROBLEMS.map((p) => `/problems/${p.slug}`),
+  ...EXPERIMENTS.map((e) => `/experiments/${e.slug}`),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

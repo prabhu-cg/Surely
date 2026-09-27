@@ -10,9 +10,9 @@ import { Reveal } from "@/components/reveal";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 import { CtaButton } from "@/components/ui/cta-button";
 import { FORM_HREF } from "@/lib/site";
+import { experimentsForProblem } from "@/lib/experiments";
 import {
   PROBLEMS,
-  experimentForProblem,
   getProblem,
   relatedProblems,
   splitEvidence,
@@ -53,7 +53,7 @@ export default async function ProblemPage({ params }: Props) {
 
   const evidence = splitEvidence(problem.evidence);
   const related = relatedProblems(problem);
-  const experiment = experimentForProblem(problem.slug);
+  const experiment = experimentsForProblem(problem)[0];
   const q = (intent: string) =>
     `${FORM_HREF}?problem=${problem.slug}&intent=${intent}`;
 
@@ -120,10 +120,10 @@ export default async function ProblemPage({ params }: Props) {
                     {experiment.name}
                   </p>
                   <p className="max-w-prose text-body-md text-midnight-800">
-                    {experiment.summary}
+                    {experiment.tagline}
                   </p>
                   <Link
-                    href={`/experiments#${experiment.slug}`}
+                    href={`/experiments/${experiment.slug}`}
                     className="text-body-sm font-semibold text-midnight-900 underline decoration-4 decoration-midnight-900/30 underline-offset-4 transition-colors duration-200 hover:decoration-midnight-900"
                   >
                     See the experiment

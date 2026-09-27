@@ -1,36 +1,43 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, MagnifyingGlass } from "@phosphor-icons/react/dist/ssr";
 import { Chip, FilterGroupLabel } from "@/components/filter-chip";
 import { Highlight } from "@/components/highlight";
 import { Pagination } from "@/components/pagination";
-import { ProblemCard } from "@/components/problem-card";
+import { ExperimentCard } from "@/components/experiment-card";
 import { Reveal } from "@/components/reveal";
 import { ViewSwitcher, type BankView } from "@/components/view-switcher";
-import { PROBLEMS, TOPICS, type Problem } from "@/lib/problems";
+import { founderImage, founderLabel } from "@/lib/founders";
+import {
+  EXPERIMENTS,
+  EXPERIMENT_FOUNDERS,
+  EXPERIMENT_TAGS,
+  type Experiment,
+} from "@/lib/experiments";
 
 const AREAS = ["All", "Life", "Work"] as const;
 const PAGE_SIZE = 10;
 
-function ProblemTable({ problems, query }: { problems: Problem[]; query: string }) {
+function ExperimentTable({ experiments, query }: { experiments: Experiment[]; query: string }) {
   return (
     <div className="overflow-x-auto rounded-2xl border border-cloud-600">
-      <table className="w-full min-w-[640px] border-collapse text-left">
+      <table className="w-full min-w-[720px] border-collapse text-left">
         <thead>
           <tr className="border-b border-cloud-600 bg-cloud-100">
             <th
               scope="col"
               className="px-5 py-3 text-body-xs font-semibold tracking-[0.1em] text-midnight-400 uppercase"
             >
-              Problem
+              Experiment
             </th>
             <th
               scope="col"
               className="hidden px-5 py-3 text-body-xs font-semibold tracking-[0.1em] text-midnight-400 uppercase sm:table-cell"
             >
-              Topic
+              Category
             </th>
             <th
               scope="col"
@@ -40,9 +47,15 @@ function ProblemTable({ problems, query }: { problems: Problem[]; query: string 
             </th>
             <th
               scope="col"
+              className="hidden px-5 py-3 text-body-xs font-semibold tracking-[0.1em] text-midnight-400 uppercase md:table-cell"
+            >
+              Founder
+            </th>
+            <th
+              scope="col"
               className="px-5 py-3 text-right text-body-xs font-semibold tracking-[0.1em] text-midnight-400 uppercase"
             >
-              People
+              Exp #
             </th>
             <th scope="col" className="px-5 py-3">
               <span className="sr-only">Action</span>
@@ -50,42 +63,58 @@ function ProblemTable({ problems, query }: { problems: Problem[]; query: string 
           </tr>
         </thead>
         <tbody>
-          {problems.map((p) => (
+          {experiments.map((e) => (
             <tr
-              key={p.slug}
+              key={e.slug}
               className="border-b border-cloud-600 transition-colors duration-200 last:border-b-0 hover:bg-cloud-50"
             >
               <td className="px-5 py-4 align-top">
                 <Link
-                  href={`/problems/${p.slug}`}
+                  href={`/experiments/${e.slug}`}
                   className="inline-block font-serif text-body-lg text-midnight-800 underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-lime-500"
                 >
-                  <Highlight text={p.title} query={query} />
+                  <Highlight text={e.name} query={query} />
                 </Link>
                 <div className="mt-1.5 flex flex-wrap gap-2 sm:hidden">
                   <span className="rounded-full bg-lime-100 px-2 py-0.5 text-body-xs font-semibold text-midnight-900">
-                    {p.topic}
+                    {e.tag}
                   </span>
                   <span className="rounded-full border border-cloud-600 px-2 py-0.5 text-body-xs font-semibold text-midnight-500">
-                    {p.area}
+                    {e.area}
                   </span>
                 </div>
               </td>
               <td className="hidden px-5 py-4 align-top sm:table-cell">
                 <span className="rounded-full bg-lime-100 px-3 py-1 text-body-xs font-semibold text-midnight-900">
-                  {p.topic}
+                  {e.tag}
                 </span>
               </td>
               <td className="hidden px-5 py-4 align-top text-body-sm text-midnight-600 md:table-cell">
-                {p.area}
+                {e.area}
+              </td>
+              <td className="hidden px-5 py-4 align-top md:table-cell">
+                <span className="flex items-center gap-2 text-body-sm text-midnight-600">
+                  {founderImage(e.founder) ? (
+                    <span className="relative size-5 shrink-0 overflow-hidden rounded-full">
+                      <Image
+                        src={founderImage(e.founder)!}
+                        alt={e.founder}
+                        fill
+                        sizes="20px"
+                        className="object-cover"
+                      />
+                    </span>
+                  ) : null}
+                  {founderLabel(e.founder)}
+                </span>
               </td>
               <td className="px-5 py-4 align-top text-right text-body-sm text-midnight-500">
-                {p.count}
+                {String(e.expNum).padStart(2, "0")}
               </td>
               <td className="px-5 py-4 align-top text-right">
                 <Link
-                  href={`/problems/${p.slug}`}
-                  aria-label={`See the problem: ${p.title}`}
+                  href={`/experiments/${e.slug}`}
+                  aria-label={`See experiment: ${e.name}`}
                   className="group inline-flex size-8 items-center justify-center rounded-full border border-cloud-600 transition-colors duration-200 hover:border-midnight-800 hover:bg-midnight-800 focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:ring-offset-2 focus-visible:outline-none"
                 >
                   <ArrowUpRight
@@ -102,10 +131,11 @@ function ProblemTable({ problems, query }: { problems: Problem[]; query: string 
   );
 }
 
-export function ProblemBank() {
+export function ExperimentBank() {
   const [query, setQuery] = useState("");
   const [area, setArea] = useState<(typeof AREAS)[number]>("All");
-  const [topic, setTopic] = useState<string>("All");
+  const [tag, setTag] = useState<string>("All");
+  const [founder, setFounder] = useState<string>("All");
   const [view, setView] = useState<BankView>("card");
   const [page, setPage] = useState(1);
   const listTop = useRef<HTMLDivElement>(null);
@@ -113,22 +143,22 @@ export function ProblemBank() {
 
   const visible = useMemo(() => {
     const q = query.trim().toLowerCase();
-    return PROBLEMS.filter(
-      (p) =>
-        (area === "All" || p.area === area) &&
-        (topic === "All" || p.topic === topic) &&
+    return EXPERIMENTS.filter(
+      (e) =>
+        (area === "All" || e.area === area) &&
+        (tag === "All" || e.tag === tag) &&
+        (founder === "All" || e.founder === founder) &&
         (!q ||
-          p.title.toLowerCase().includes(q) ||
-          p.statement.toLowerCase().includes(q))
+          e.name.toLowerCase().includes(q) ||
+          e.tagline.toLowerCase().includes(q))
     );
-  }, [query, area, topic]);
+  }, [query, area, tag, founder]);
 
-  const filtered = !!query || area !== "All" || topic !== "All";
+  const filtered = !!query || area !== "All" || tag !== "All" || founder !== "All";
   const totalPages = Math.max(1, Math.ceil(visible.length / PAGE_SIZE));
   const safePage = Math.min(page, totalPages);
   const pageItems = visible.slice((safePage - 1) * PAGE_SIZE, safePage * PAGE_SIZE);
 
-  // Any change to the filters starts back at page one.
   const setQueryAndReset = (value: string) => {
     setQuery(value);
     setPage(1);
@@ -137,8 +167,12 @@ export function ProblemBank() {
     setArea(value);
     setPage(1);
   };
-  const setTopicAndReset = (value: string) => {
-    setTopic(value);
+  const setTagAndReset = (value: string) => {
+    setTag(value);
+    setPage(1);
+  };
+  const setFounderAndReset = (value: string) => {
+    setFounder(value);
     setPage(1);
   };
 
@@ -154,19 +188,19 @@ export function ProblemBank() {
     <div className="flex flex-col gap-10">
       <div ref={listTop} className="flex scroll-mt-28 flex-col gap-6">
         <div className="relative">
-          <label htmlFor="problem-search" className="sr-only">
-            Search problems
+          <label htmlFor="experiment-search" className="sr-only">
+            Search experiments
           </label>
           <MagnifyingGlass
             className="pointer-events-none absolute top-1/2 left-4 size-5 -translate-y-1/2 text-midnight-300"
             weight="regular"
           />
           <input
-            id="problem-search"
+            id="experiment-search"
             type="search"
             value={query}
             onChange={(e) => setQueryAndReset(e.target.value)}
-            placeholder="Search, e.g. insurance, childcare, passport"
+            placeholder="Search, e.g. prompts, design, admin"
             className="w-full rounded-full border border-cloud-600 bg-cloud-50 py-3 pr-4 pl-12 text-body-md text-midnight-800 placeholder:text-cloud-800 transition-colors duration-200 hover:border-midnight-300 focus-visible:border-midnight-800 focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:outline-none"
           />
         </div>
@@ -201,14 +235,28 @@ export function ProblemBank() {
           </div>
 
           <div className="flex flex-wrap items-start gap-3">
-            <FilterGroupLabel>Topic</FilterGroupLabel>
-            <div role="group" aria-label="Filter by topic" className="flex flex-1 flex-wrap gap-2">
-              <Chip active={topic === "All"} onClick={() => setTopicAndReset("All")}>
-                All topics
+            <FilterGroupLabel>Category</FilterGroupLabel>
+            <div role="group" aria-label="Filter by category" className="flex flex-1 flex-wrap gap-2">
+              <Chip active={tag === "All"} onClick={() => setTagAndReset("All")}>
+                All categories
               </Chip>
-              {TOPICS.map((t) => (
-                <Chip key={t} active={topic === t} onClick={() => setTopicAndReset(t)}>
+              {EXPERIMENT_TAGS.map((t) => (
+                <Chip key={t} active={tag === t} onClick={() => setTagAndReset(t)}>
                   {t}
+                </Chip>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex flex-wrap items-start gap-3">
+            <FilterGroupLabel>Founder</FilterGroupLabel>
+            <div role="group" aria-label="Filter by founder" className="flex flex-1 flex-wrap gap-2">
+              <Chip active={founder === "All"} onClick={() => setFounderAndReset("All")}>
+                Everyone
+              </Chip>
+              {EXPERIMENT_FOUNDERS.map((f) => (
+                <Chip key={f} active={founder === f} onClick={() => setFounderAndReset(f)}>
+                  {founderLabel(f)}
                 </Chip>
               ))}
             </div>
@@ -219,8 +267,8 @@ export function ProblemBank() {
       <div className="flex flex-wrap items-center justify-between gap-4">
         <p className="text-body-sm text-midnight-500" role="status" aria-live="polite">
           {filtered
-            ? `${visible.length} of ${PROBLEMS.length} problems`
-            : `${PROBLEMS.length} problems`}
+            ? `${visible.length} of ${EXPERIMENTS.length} experiments`
+            : `${EXPERIMENTS.length} experiments`}
         </p>
         <ViewSwitcher view={view} onChange={setView} />
       </div>
@@ -229,19 +277,19 @@ export function ProblemBank() {
         <>
           {view === "card" ? (
             <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {pageItems.map((p, i) => (
-                <li key={p.slug}>
+              {pageItems.map((e, i) => (
+                <li key={e.slug}>
                   <Reveal delay={(i % PAGE_SIZE) * 50} className="h-full">
-                    <ProblemCard problem={p} query={query} />
+                    <ExperimentCard experiment={e} />
                   </Reveal>
                 </li>
               ))}
             </ul>
           ) : (
-            <ProblemTable problems={pageItems} query={query} />
+            <ExperimentTable experiments={pageItems} query={query} />
           )}
 
-          <Pagination page={safePage} totalPages={totalPages} onChange={setPage} label="Problem bank pages" />
+          <Pagination page={safePage} totalPages={totalPages} onChange={setPage} label="Experiment bank pages" />
         </>
       ) : (
         <div className="flex flex-col items-start gap-3 rounded-2xl border border-cloud-600 bg-cloud-100 p-8">
@@ -249,15 +297,15 @@ export function ProblemBank() {
             Nothing matches that yet.
           </p>
           <p className="max-w-md text-body-md text-midnight-500">
-            Try fewer words or another topic, or tell us the problem and it may
-            become the next one on the list.
+            Try fewer words or another category.
           </p>
           <button
             type="button"
             onClick={() => {
               setQueryAndReset("");
               setArea("All");
-              setTopic("All");
+              setTag("All");
+              setFounder("All");
             }}
             className="text-body-sm font-semibold text-midnight-800 underline decoration-4 decoration-lime-500 underline-offset-4"
           >

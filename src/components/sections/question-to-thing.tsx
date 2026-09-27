@@ -132,9 +132,9 @@ export function QuestionToThing() {
             <p className="text-heading-xs font-extrabold text-midnight-900">
               {experiment.name}
             </p>
-            <p className="text-body-md text-midnight-800">{experiment.summary}</p>
+            <p className="text-body-md text-midnight-800">{experiment.tagline}</p>
             <Link
-              href={`/experiments#${experiment.slug}`}
+              href={`/experiments/${experiment.slug}`}
               className="w-fit text-body-sm font-semibold text-midnight-900 underline decoration-4 decoration-midnight-900/30 underline-offset-4 transition-colors duration-200 hover:decoration-midnight-900"
             >
               See the experiment
