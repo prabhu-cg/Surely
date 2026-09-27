@@ -7,6 +7,7 @@ import {
 import type { Icon } from "@phosphor-icons/react";
 import { Logo } from "@/components/logo";
 import { Container } from "@/components/container";
+import { SITE } from "@/lib/site";
 
 const COLUMNS: {
   title: string;
@@ -15,17 +16,20 @@ const COLUMNS: {
   {
     title: "Explore",
     links: [
-      { label: "What we do", href: "#what-we-do" },
-      { label: "How we work", href: "#how-we-work" },
-      { label: "Insights", href: "#insights" },
-      { label: "About", href: "#about" },
+      { label: "What we do", href: "/what-we-do" },
+      { label: "Problems", href: "/problems" },
+      { label: "Experiments", href: "/experiments" },
+      { label: "Insights", href: "/insights" },
+      { label: "About", href: "/about" },
+      { label: "Tell us a problem", href: "/tell-us-a-problem" },
     ],
   },
   {
     title: "Legal",
     links: [
-      { label: "Privacy", href: "#" },
-      { label: "Cookies", href: "#" },
+      { label: "Privacy", href: "/privacy" },
+      { label: "Terms of Use", href: "/terms" },
+      { label: "Cookies", href: "/cookies" },
     ],
   },
   {
@@ -35,7 +39,7 @@ const COLUMNS: {
       { label: "Instagram", href: "#", icon: InstagramLogo },
       {
         label: "Email",
-        href: "mailto:hello@surely.com",
+        href: `mailto:${SITE.email}`,
         icon: EnvelopeSimple,
       },
     ],

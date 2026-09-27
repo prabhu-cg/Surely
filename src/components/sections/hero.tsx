@@ -23,7 +23,7 @@ export function Hero() {
           been done isn&rsquo;t the best way forward.
         </p>
 
-        <CtaButton href="#what-we-do" variant="lime">
+        <CtaButton href="/what-we-do" variant="lime">
           Let&rsquo;s explore
         </CtaButton>
 

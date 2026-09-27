@@ -7,6 +7,7 @@ import {
 } from "@phosphor-icons/react/dist/ssr";
 import type { Icon } from "@phosphor-icons/react";
 import { Container } from "@/components/container";
+import { Reveal } from "@/components/reveal";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 
 const ITEMS: { title: string; icon: Icon; body: string }[] = [
@@ -39,10 +40,7 @@ const ITEMS: { title: string; icon: Icon; body: string }[] = [
 
 export function WhatWeDo() {
   return (
-    <section
-      id="what-we-do"
-      className="scroll-mt-20 bg-cloud-100 py-20 sm:py-28"
-    >
+    <section className="bg-cloud-100 py-20 sm:py-28">
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col gap-4">
           <SectionEyebrow>What we do</SectionEyebrow>
@@ -56,19 +54,18 @@ export function WhatWeDo() {
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {ITEMS.map(({ title, icon: Icon, body }) => (
-            <div
-              key={title}
-              className="flex flex-col gap-4 rounded-2xl border border-cloud-600 bg-cloud-50 p-6"
-            >
-              <span className="flex size-11 items-center justify-center rounded-full bg-midnight-500">
-                <Icon className="size-5 text-lime-500" weight="regular" />
-              </span>
-              <p className="text-body-lg font-semibold text-midnight-800">
-                {title}
-              </p>
-              <p className="text-body-sm text-midnight-500">{body}</p>
-            </div>
+          {ITEMS.map(({ title, icon: Icon, body }, i) => (
+            <Reveal key={title} delay={i * 70}>
+              <div className="flex h-full flex-col gap-4 rounded-2xl border border-cloud-600 bg-cloud-50 p-6">
+                <span className="flex size-11 items-center justify-center rounded-full bg-midnight-500">
+                  <Icon className="size-5 text-lime-500" weight="regular" />
+                </span>
+                <p className="text-body-lg font-semibold text-midnight-800">
+                  {title}
+                </p>
+                <p className="text-body-sm text-midnight-500">{body}</p>
+              </div>
+            </Reveal>
           ))}
         </div>
       </Container>

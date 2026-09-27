@@ -196,6 +196,11 @@
   --sidebar-ring: var(--color-lime-500);
 }
 
+::selection {
+  background: var(--color-lime-300);
+  color: var(--color-midnight-900);
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;

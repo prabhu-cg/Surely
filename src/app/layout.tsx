@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Source_Serif_4 } from "next/font/google";
+import { SITE } from "@/lib/site";
 import "./globals.css";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
@@ -16,9 +17,21 @@ const sourceSerif4 = Source_Serif_4({
 });
 
 export const metadata: Metadata = {
-  title: "Surely — There must be a better way.",
-  description:
-    "Surely brings together different perspectives to explore problems, uncover possibilities and build things that matter.",
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: "Surely — There must be a better way.",
+    template: "%s | Surely",
+  },
+  description: SITE.description,
+  alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    siteName: SITE.name,
+    title: "Surely — There must be a better way.",
+    description: SITE.description,
+    images: [{ url: "/images/hero-perspective.jpg", alt: "Two people reviewing work together" }],
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

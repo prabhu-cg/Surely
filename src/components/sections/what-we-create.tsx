@@ -37,8 +37,8 @@ export function WhatWeCreate() {
           ))}
         </ul>
 
-        <CtaButton href="#what-we-do" variant="dark">
-          Explore our offerings
+        <CtaButton href="/experiments" variant="dark">
+          See what we’ve built
         </CtaButton>
       </Container>
     </section>

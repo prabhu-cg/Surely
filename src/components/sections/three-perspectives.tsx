@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { LinkedinLogo } from "@phosphor-icons/react/dist/ssr";
 import { Container } from "@/components/container";
+import { Reveal } from "@/components/reveal";
 import { SectionEyebrow } from "@/components/section-eyebrow";
 import { CtaButton } from "@/components/ui/cta-button";
 
@@ -25,9 +25,58 @@ const FOUNDERS = [
   },
 ];
 
-export function ThreePerspectives() {
+export function ThreePerspectives({
+  variant = "full",
+}: {
+  variant?: "full" | "compact";
+}) {
+  if (variant === "compact") {
+    return (
+      <section className="bg-lime-100 py-20 sm:py-28">
+        <Container className="flex flex-col items-center gap-10 text-center">
+          <div className="flex flex-col items-center gap-4">
+            <SectionEyebrow tone="lime">Who&rsquo;s asking</SectionEyebrow>
+            <h2 className="max-w-2xl text-heading-md font-extrabold text-midnight-900 uppercase sm:text-heading-lg">
+              Three founders. Three perspectives.
+            </h2>
+          </div>
+
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-6">
+            {FOUNDERS.map((founder, i) => (
+              <Reveal key={founder.name} delay={i * 90}>
+                <div className="flex items-center gap-3 text-left">
+                  <span className="relative size-14 shrink-0 overflow-hidden rounded-full ring-2 ring-midnight-900/10">
+                    <Image
+                      src={founder.image}
+                      alt={founder.name.replace(".", "")}
+                      fill
+                      sizes="56px"
+                      className="object-cover"
+                    />
+                  </span>
+                  <div className="flex flex-col">
+                    <p className="text-body-md font-bold text-midnight-900">
+                      {founder.name}
+                    </p>
+                    <p className="text-body-sm text-midnight-700">
+                      {founder.tagline}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <CtaButton href="/about" variant="dark">
+            Meet the three of us
+          </CtaButton>
+        </Container>
+      </section>
+    );
+  }
+
   return (
-    <section id="about" className="scroll-mt-20 bg-lime-100 py-20 sm:py-28">
+    <section className="bg-lime-100 py-20 sm:py-28">
       <Container className="flex flex-col gap-12">
         <div className="flex flex-col items-center gap-4 text-center">
           <SectionEyebrow tone="lime">Three perspectives</SectionEyebrow>
@@ -43,44 +92,31 @@ export function ThreePerspectives() {
         </div>
 
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {FOUNDERS.map((founder) => (
-            <div
-              key={founder.name}
-              className="flex flex-col gap-5 rounded-2xl bg-midnight-800 p-5"
-            >
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
-                <Image
-                  src={founder.image}
-                  alt={founder.name.replace(".", "")}
-                  fill
-                  sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 100vw"
-                  className="object-cover"
-                />
+          {FOUNDERS.map((founder, i) => (
+            <Reveal key={founder.name} delay={i * 80}>
+              <div className="flex h-full flex-col gap-5 rounded-2xl bg-midnight-800 p-5">
+                <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
+                  <Image
+                    src={founder.image}
+                    alt={founder.name.replace(".", "")}
+                    fill
+                    sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <p className="text-heading-xs font-bold text-cloud-50">
+                    {founder.name}
+                  </p>
+                  <p className="text-body-sm font-semibold text-lime-500">
+                    {founder.tagline}
+                  </p>
+                  <p className="text-body-sm text-midnight-100">
+                    {founder.body}
+                  </p>
+                </div>
               </div>
-              <div className="flex flex-col gap-2">
-                <p className="text-heading-xs font-bold text-cloud-50">
-                  {founder.name}
-                </p>
-                <p className="text-body-sm font-semibold text-lime-500">
-                  {founder.tagline}
-                </p>
-                <p className="text-body-sm text-midnight-100">
-                  {founder.body}
-                </p>
-              </div>
-              <div className="flex items-center justify-between">
-                <CtaButton variant="lime" href="#about">
-                  Explore
-                </CtaButton>
-                <a
-                  href="#"
-                  className="flex size-12 shrink-0 items-center justify-center rounded-full border border-cloud-600 bg-cloud-50 text-midnight-900 transition-all duration-200 ease-out hover:scale-[1.03] hover:border-lime-500 hover:bg-lime-500"
-                  aria-label={`${founder.name.replace(".", "")} on LinkedIn`}
-                >
-                  <LinkedinLogo className="size-5" weight="regular" />
-                </a>
-              </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
