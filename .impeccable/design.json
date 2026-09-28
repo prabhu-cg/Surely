@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-09-28T19:42:05Z",
+  "generatedAt": "2026-09-28T19:48:09Z",
   "title": "Design System: Surely",
   "extensions": {
     "colorMeta": {
@@ -8,63 +8,140 @@
         "role": "primary",
         "displayName": "Midnight Ink",
         "canonical": "#181818",
-        "tonalRamp": ["#0a0a0a", "#0d0d0d", "#111111", "#161616", "#181818", "#464646", "#646464", "#959595"]
+        "tonalRamp": [
+          "#0a0a0a",
+          "#0d0d0d",
+          "#111111",
+          "#161616",
+          "#181818",
+          "#464646",
+          "#646464",
+          "#959595"
+        ]
       },
       "lime-signal": {
         "role": "secondary",
         "displayName": "Lime Signal",
         "canonical": "#c7f000",
-        "tonalRamp": ["#546500", "#6d8400", "#8daa00", "#b5da00", "#c7f000", "#d2f333", "#e5f88a", "#f9fee6"]
+        "tonalRamp": [
+          "#546500",
+          "#6d8400",
+          "#8daa00",
+          "#b5da00",
+          "#c7f000",
+          "#d2f333",
+          "#e5f88a",
+          "#f9fee6"
+        ]
       },
       "lime-wash": {
         "role": "secondary-tint",
         "displayName": "Lime Wash",
         "canonical": "#eefab0",
-        "tonalRamp": ["#546500", "#8daa00", "#b5da00", "#c7f000", "#d9f554", "#e5f88a", "#eefab0", "#f9fee6"]
+        "tonalRamp": [
+          "#546500",
+          "#8daa00",
+          "#b5da00",
+          "#c7f000",
+          "#d9f554",
+          "#e5f88a",
+          "#eefab0",
+          "#f9fee6"
+        ]
       },
       "cloud-paper": {
         "role": "neutral",
         "displayName": "Cloud Paper",
         "canonical": "#fffffe",
-        "tonalRamp": ["#6b6a68", "#8c8b88", "#b5b4b0", "#e8e6e2", "#fffdf8", "#fffdf9", "#fffefc", "#fffffe"]
-      },
-      "page-bone": {
-        "role": "neutral-background",
-        "displayName": "Page Bone",
-        "canonical": "#fffdf8",
-        "tonalRamp": ["#fffdf8"]
-      },
-      "card-white": {
-        "role": "neutral-surface",
-        "displayName": "Card White",
-        "canonical": "#ffffff",
-        "tonalRamp": ["#ffffff"]
+        "tonalRamp": [
+          "#6b6a68",
+          "#8c8b88",
+          "#b5b4b0",
+          "#e8e6e2",
+          "#fffdf8",
+          "#fffdf9",
+          "#fffefc",
+          "#fffffe"
+        ]
       },
       "destructive": {
         "role": "destructive",
         "displayName": "Destructive Red",
         "canonical": "oklch(0.577 0.245 27.325)",
-        "tonalRamp": ["oklch(0.3 0.18 27)", "oklch(0.45 0.22 27)", "oklch(0.577 0.245 27.325)", "oklch(0.704 0.191 22.216)", "oklch(0.82 0.13 27)"]
+        "tonalRamp": [
+          "oklch(0.3 0.18 27)",
+          "oklch(0.45 0.22 27)",
+          "oklch(0.577 0.245 27.325)",
+          "oklch(0.704 0.191 22.216)",
+          "oklch(0.82 0.13 27)"
+        ]
+      },
+      "white": {
+        "role": "neutral-surface",
+        "displayName": "White",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#ffffff"
+        ]
       }
     },
     "typographyMeta": {
-      "display": { "displayName": "Display", "purpose": "Largest marketing statements; defined in the type scale but not yet in wide use on shipped pages." },
-      "heading": { "displayName": "Heading (sans, uppercase)", "purpose": "Hero H1s and major section H2s. Always uppercase, extra-bold, tight tracking." },
-      "card-heading": { "displayName": "Card/Content Title (serif)", "purpose": "Problem/experiment card titles and in-page subheads. The one place Source Serif 4 appears." },
-      "body": { "displayName": "Body", "purpose": "Paragraph copy, form labels, nav links." },
-      "label": { "displayName": "Label / Eyebrow", "purpose": "Eyebrows, table column headers, filter-group labels, topic pills — uppercase, tracked, semibold/bold." }
+      "display": {
+        "displayName": "Display",
+        "purpose": "Largest marketing statements; defined in the type scale but not yet in wide use on shipped pages."
+      },
+      "heading": {
+        "displayName": "Heading (sans, uppercase)",
+        "purpose": "Hero H1s and major section H2s. Always uppercase, extra-bold, tight tracking."
+      },
+      "card-heading": {
+        "displayName": "Card/Content Title (serif)",
+        "purpose": "Problem/experiment card titles and in-page subheads. The one place Source Serif 4 appears."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Paragraph copy, form labels, nav links."
+      },
+      "label": {
+        "displayName": "Label / Eyebrow",
+        "purpose": "Eyebrows, table column headers, filter-group labels, topic pills \u2014 uppercase, tracked, semibold/bold."
+      }
     },
     "shadows": [],
     "motion": [
-      { "name": "cta-hover-scale", "value": "transition-all duration-200 ease-out hover:scale-[1.03] active:scale-[0.97]", "purpose": "Primary CTA button hover/press micro-motion." },
-      { "name": "underline-reveal", "value": "underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-lime-500", "purpose": "Nav and inline-link hover/active treatment; underline color animates in rather than being always-visible." },
-      { "name": "button-press", "value": "active:not-aria-[haspopup]:translate-y-px", "purpose": "1px press-down feedback on shadcn Button primitive." }
+      {
+        "name": "cta-hover-scale",
+        "value": "transition-all duration-200 ease-out hover:scale-[1.03] active:scale-[0.97]",
+        "purpose": "Primary CTA button hover/press micro-motion."
+      },
+      {
+        "name": "underline-reveal",
+        "value": "underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-lime-500",
+        "purpose": "Nav and inline-link hover/active treatment; underline color animates in rather than being always-visible."
+      },
+      {
+        "name": "button-press",
+        "value": "active:not-aria-[haspopup]:translate-y-px",
+        "purpose": "1px press-down feedback on shadcn Button primitive."
+      }
     ],
     "breakpoints": [
-      { "name": "sm", "value": "640px" },
-      { "name": "md", "value": "768px" },
-      { "name": "lg", "value": "1024px" },
-      { "name": "xl", "value": "1280px" }
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
     ]
   },
   "components": [
@@ -127,30 +204,46 @@
   ],
   "narrative": {
     "northStar": "The Confident Contrarian",
-    "overview": "Surely is a studio that exists to question what everyone else accepts, and the site is built to hold that stance visually: short, blunt, uppercase display statements in extra-bold sans-serif sit against near-black \"Midnight\" sections, punctuated by a single unmistakable accent — a raw, unmixed lime (#c7f000). Outside those dark statement moments, the site relaxes into an off-white \"Cloud\" canvas of soft-cornered white cards, calm serif sub-headings, and quiet neutral borders. The pairing is deliberate: sans-serif extra-bold uppercase carries conviction and authority (hero lines, section headlines), while the serif (Source Serif 4) is reserved for card and content titles, giving those moments a slower, more editorial register.\n\nThe system is flat, not shadowed — depth comes from color blocking (midnight sections, lime sections, white cards on cloud backgrounds) and from a consistent large-radius rounding language, not from elevation. Corners are generously rounded almost everywhere (buttons and pills are fully rounded; cards, inputs, and images use large 1-1.8rem radii), which softens what would otherwise be a very high-contrast, poster-like palette.",
+    "overview": "Surely is a studio that exists to question what everyone else accepts, and the site is built to hold that stance visually: short, blunt, uppercase display statements in extra-bold sans-serif sit against near-black \"Midnight\" sections, punctuated by a single unmistakable accent \u2014 a raw, unmixed lime (#c7f000). Outside those dark statement moments, the site relaxes into an off-white \"Cloud\" canvas of soft-cornered white cards, calm serif sub-headings, and quiet neutral borders. The pairing is deliberate: sans-serif extra-bold uppercase carries conviction and authority (hero lines, section headlines), while the serif (Source Serif 4) is reserved for card and content titles, giving those moments a slower, more editorial register.\n\nThe system is flat, not shadowed \u2014 depth comes from color blocking (midnight sections, lime sections, white cards on cloud backgrounds) and from a consistent large-radius rounding language, not from elevation. Corners are generously rounded almost everywhere (buttons and pills are fully rounded; cards, inputs, and images use large 1-1.8rem radii), which softens what would otherwise be a very high-contrast, poster-like palette.",
     "keyCharacteristics": [
       "Near-black \"Midnight\" sections carry the boldest statements; lime is the only saturated color and appears sparingly, as accent fills, focus rings, and hover states.",
-      "Sans-serif extra-bold uppercase for structural headings; serif for card/content titles — a deliberate two-voice type pairing.",
+      "Sans-serif extra-bold uppercase for structural headings; serif for card/content titles \u2014 a deliberate two-voice type pairing.",
       "Flat, borderless-by-default surfaces; depth comes from background color blocking, not shadows.",
       "Full-radius pills for every button, chip, and toggle; large (1-1.8rem) radii for cards, inputs, and photography.",
       "Cards, form fields, and table rows are consistently rendered on literal white, distinct from the warm off-white page canvas."
     ],
     "rules": [
-      { "name": "The One Accent Rule", "body": "Lime is the only saturated color in the system. It is reserved for interaction feedback (hover, focus, active, success) and small intentional blocks — never a background for large bodies of text or a default UI color.", "section": "colors" },
-      { "name": "The Split Surface Rule", "body": "--card (#ffffff) and the body background (#fffdf8) are pinned to literal hex values rather than the --color-cloud-* token ramp, and --card stays #ffffff in both light and dark mode. This means cards read as a fractionally cooler white than the page they sit on, and dark mode currently ships no distinct dark card surface — both are shipped realities, not yet reconciled with the token system, and should be treated as the current source of truth rather than \"corrected\" back to cloud-50 without a deliberate design decision.", "section": "colors" },
-      { "name": "The Uppercase-Authority Rule", "body": "Uppercase + extra-bold (800) weight is reserved for structural headings (H1/H2) and labels/eyebrows. Body copy, card titles, and links are never uppercased.", "section": "typography" },
-      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest and on interaction. State changes (hover, focus, active) are communicated through color shift (border darkening, background inversion to lime), underline decoration, or a 1px translate-y press effect on buttons — never through elevation.", "section": "elevation" }
+      {
+        "name": "The One Accent Rule",
+        "body": "Lime is the only saturated color in the system. It is reserved for interaction feedback (hover, focus, active, success) and small intentional blocks \u2014 never a background for large bodies of text or a default UI color.",
+        "section": "colors"
+      },
+      {
+        "name": "The Split Surface Rule",
+        "body": "Elevated surfaces (cards, inputs, table rows) use the dedicated --color-white token (#ffffff), not the Cloud ramp, so they read a fractionally cooler white than the page they sit on; --card resolves to this token in both light and dark mode, so dark mode currently ships no distinct dark card surface. This is now a token-backed, intentional design decision (previously a hardcoded hex override with no home in the ramp \u2014 reconciled: both --card and the body background were pinned to literal hex values; the body background now reads --color-cloud-500 and --card now reads var(--color-white), a real token added to the @theme block for this purpose). Don't merge --color-white back into the Cloud ramp without a deliberate design decision \u2014 the visual separation from cloud-50's warm tint is the point.",
+        "section": "colors"
+      },
+      {
+        "name": "The Uppercase-Authority Rule",
+        "body": "Uppercase + extra-bold (800) weight is reserved for structural headings (H1/H2) and labels/eyebrows. Body copy, card titles, and links are never uppercased.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest and on interaction. State changes (hover, focus, active) are communicated through color shift (border darkening, background inversion to lime), underline decoration, or a 1px translate-y press effect on buttons \u2014 never through elevation.",
+        "section": "elevation"
+      }
     ],
     "dos": [
-      "Do keep lime to a single accent role per view — hover fills, focus rings, small tint blocks (lime-100) — never a primary background for text-heavy content.",
+      "Do keep lime to a single accent role per view \u2014 hover fills, focus rings, small tint blocks (lime-100) \u2014 never a primary background for text-heavy content.",
       "Do use rounded-full for every interactive pill/button/chip and rounded-2xl/rounded-xl for cards/inputs; don't mix in a smaller or sharper radius for the same component class.",
-      "Do pair uppercase extra-bold sans headings with sentence-case serif for card/content titles — the two-voice contrast is a deliberate, reused pattern, not an inconsistency.",
-      "Do treat #ffffff as the literal, deliberate card/table/input surface color and #fffdf8 as the literal, deliberate page background — both are current source of truth even though they bypass the cloud-* token ramp."
+      "Do pair uppercase extra-bold sans headings with sentence-case serif for card/content titles \u2014 the two-voice contrast is a deliberate, reused pattern, not an inconsistency.",
+      "Do treat --color-white (#ffffff) as the deliberate card/table/input surface token, distinct from --color-cloud-500 (#fffdf8), the page background token. Both are now token-backed, not hardcoded overrides."
     ],
     "donts": [
       "Don't introduce box-shadow elevation; this system conveys hierarchy through flat color blocking and borders only.",
-      "Don't treat SectionEyebrow as license to add more kicker/eyebrow labels to net-new surfaces by default — it is already load-bearing across nearly every section on this site, and its further spread should be a deliberate call per new surface, not an inherited reflex.",
-      "Don't reconcile --card or the body background back to --color-cloud-50 without a deliberate design decision — the literal-hex override is a recorded, intentional deviation (see Split Surface Rule), not a bug to silently \"fix.\"",
+      "Don't treat SectionEyebrow as license to add more kicker/eyebrow labels to net-new surfaces by default \u2014 it is already load-bearing across nearly every section on this site, and its further spread should be a deliberate call per new surface, not an inherited reflex.",
+      "Don't merge --card (--color-white) into the Cloud ramp \u2014 the visual separation from cloud-50 is deliberate (see Split Surface Rule). The prior hardcoded-hex defect (body background and --card bypassing tokens) has been resolved: both now reference real tokens.",
       "Don't use the destructive red for anything other than form validation states."
     ]
   }

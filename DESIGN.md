@@ -8,8 +8,7 @@ colors:
   cloud-paper: "#fffffe"
   cloud-line: "#e8e6e2"
   cloud-mute: "#8c8b88"
-  card-white: "#ffffff"
-  page-bone: "#fffdf8"
+  white: "#ffffff"
   lime-signal: "#c7f000"
   lime-wash: "#eefab0"
   destructive: "oklch(0.577 0.245 27.325)"
@@ -85,12 +84,12 @@ components:
     rounded: "{rounded.pill}"
     padding: "4px 12px"
   card:
-    backgroundColor: "{colors.card-white}"
+    backgroundColor: "{colors.white}"
     textColor: "{colors.midnight-ink}"
     rounded: "{rounded.2xl}"
     padding: "24px"
   input:
-    backgroundColor: "{colors.card-white}"
+    backgroundColor: "{colors.white}"
     textColor: "{colors.midnight-ink}"
     rounded: "{rounded.xl}"
     padding: "12px 16px"
@@ -126,8 +125,7 @@ The palette is three ramps — a warm-white "Cloud" neutral, a near-black "Midni
 
 ### Neutral
 - **Cloud Paper** (`#fffffe`–`#fffdf9`, `--color-cloud-50`…`400`): the light-mode background ramp; near-white, used for the header bar, page chrome, and light section backgrounds.
-- **Page Bone** (`#fffdf8`): the literal body background, applied directly in `globals.css` and again as `bg-[#FFFDF8]` in `layout.tsx`, rather than via the `--color-cloud-50` token. It renders indistinguishably close to `cloud-50` but is a hardcoded value, not a token reference — see Named Rule below.
-- **Card White** (`#ffffff`): the literal `--card` value, used for every card, table row, and form input regardless of light/dark theme. It is intentionally *not* wired to the Cloud ramp — a deliberate deviation, see Named Rule below.
+- **White** (`#ffffff`, `--color-white`): a dedicated token (added to the `@theme` block directly after the Cloud ramp) reserved for elevated surfaces — cards, inputs, table rows — that need to read lighter than the Cloud ramp's warm off-whites. `--card` in both `:root` and `.dark` resolves to `var(--color-white)`. The page body background now resolves to `--color-cloud-500` (`bg-cloud-500`, exactly `#fffdf8`) rather than a hardcoded hex — see Named Rule below.
 - **Cloud Line** (`#e8e6e2`, `--color-cloud-600`): the universal border/divider color — card borders, input borders, table borders, header border.
 - **Cloud Mute** (`#8c8b88`–`#b5b4b0`, `--color-cloud-700/800`): placeholder text and secondary iconography on light backgrounds.
 - **Midnight Text Ramp** (`--color-midnight-300`…`900`): body copy (`midnight-500`/`700`), headings (`midnight-800`/`900`), and muted captions (`midnight-300`/`400`) on light backgrounds.
@@ -136,7 +134,7 @@ The palette is three ramps — a warm-white "Cloud" neutral, a near-black "Midni
 ### Named Rules
 **The One Accent Rule.** Lime is the only saturated color in the system. It is reserved for interaction feedback (hover, focus, active, success) and small intentional blocks — never a background for large bodies of text or a default UI color.
 
-**The Split Surface Rule.** `--card` (`#ffffff`) and the body background (`#fffdf8`) are pinned to literal hex values rather than the `--color-cloud-*` token ramp, and `--card` stays `#ffffff` in both light and dark mode. This means cards read as a fractionally cooler white than the page they sit on, and dark mode currently ships no distinct dark card surface — both are shipped realities, not yet reconciled with the token system, and should be treated as the current source of truth rather than "corrected" back to `cloud-50` without a deliberate design decision.
+**The Split Surface Rule.** Elevated surfaces (cards, inputs, table rows) use the dedicated `--color-white` token (`#ffffff`), not the Cloud ramp, so they read a fractionally cooler white than the page they sit on; `--card` resolves to this token in both light and dark mode, so dark mode currently ships no distinct dark card surface. This is now a token-backed, intentional design decision (previously a hardcoded hex override with no home in the ramp — reconciled: both `--card` and the body background were pinned to literal hex values; the body background now reads `--color-cloud-500` and `--card` now reads `var(--color-white)`, a real token added to the `@theme` block for this purpose). Don't merge `--color-white` back into the Cloud ramp without a deliberate design decision — the visual separation from `cloud-50`'s warm tint is the point.
 
 ## Typography
 
@@ -186,7 +184,7 @@ Corner radius is generous and consistent across the whole system, driven by a si
 
 ### Cards / Containers
 - **Corner Style:** `rounded-2xl` (1.8rem).
-- **Background:** literal white (`bg-card` → `#ffffff`), distinct from the page's `#fffdf8` canvas.
+- **Background:** `bg-card` → `var(--color-white)` (`#ffffff`), distinct from the page's `--color-cloud-500` (`#fffdf8`) canvas.
 - **Shadow Strategy:** none — see Elevation & Depth; hierarchy comes from the `cloud-600` border, which darkens to `midnight-800` on hover.
 - **Border:** 1px `border-cloud-600`.
 - **Internal Padding:** `p-6` (24px) standard; `p-5` for tighter founder cards; `p-8`–`p-10` for large callout/success panels.
@@ -213,10 +211,10 @@ Corner radius is generous and consistent across the whole system, driven by a si
 - **Do** keep lime to a single accent role per view — hover fills, focus rings, small tint blocks (`lime-100`) — never a primary background for text-heavy content.
 - **Do** use `rounded-full` for every interactive pill/button/chip and `rounded-2xl`/`rounded-xl` for cards/inputs; don't mix in a smaller or sharper radius for the same component class.
 - **Do** pair uppercase extra-bold sans headings with sentence-case serif for card/content titles — the two-voice contrast is a deliberate, reused pattern, not an inconsistency.
-- **Do** treat `#ffffff` as the literal, deliberate card/table/input surface color and `#fffdf8` as the literal, deliberate page background — both are current source of truth even though they bypass the `cloud-*` token ramp.
+- **Do** treat `--color-white` (`#ffffff`) as the deliberate card/table/input surface token, distinct from `--color-cloud-500` (`#fffdf8`), the page background token. Both are now token-backed, not hardcoded overrides.
 
 ### Don't:
 - **Don't** introduce `box-shadow` elevation; this system conveys hierarchy through flat color blocking and borders only.
 - **Don't** treat `SectionEyebrow` as license to add more kicker/eyebrow labels to net-new surfaces by default — it is already load-bearing across nearly every section on this site, and its further spread should be a deliberate call per new surface, not an inherited reflex.
-- **Don't** reconcile `--card` or the body background back to `--color-cloud-50` without a deliberate design decision — the literal-hex override is a recorded, intentional deviation (see Split Surface Rule), not a bug to silently "fix."
+- **Don't** merge `--card` (`--color-white`) into the Cloud ramp — the visual separation from `cloud-50` is deliberate (see Split Surface Rule). The prior hardcoded-hex defect (body background and `--card` bypassing tokens) has been resolved: both now reference real tokens.
 - **Don't** use the destructive red for anything other than form validation states.
