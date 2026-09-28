@@ -46,7 +46,7 @@ const REQUIRED: { key: keyof Fields; message: string }[] = [
 ];
 
 const inputClass =
-  "w-full rounded-xl border border-cloud-600 bg-cloud-50 px-4 py-3 text-body-md text-midnight-800 placeholder:text-cloud-800 transition-colors duration-200 hover:border-midnight-300 focus-visible:border-midnight-800 focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:outline-none aria-invalid:border-destructive";
+  "w-full rounded-xl border border-cloud-600 bg-white px-4 py-3 text-body-md text-midnight-800 placeholder:text-cloud-800 transition-colors duration-200 hover:border-midnight-300 focus-visible:border-midnight-800 focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:outline-none aria-invalid:border-destructive";
 
 const FREQUENCIES = [
   "Daily",
@@ -336,7 +336,7 @@ export function ProblemForm() {
               onChange={set(key)}
               className="peer sr-only"
             />
-            <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-md border border-cloud-700 bg-cloud-50 text-transparent transition-colors duration-200 peer-checked:border-lime-500 peer-checked:bg-lime-500 peer-checked:text-midnight-900 peer-focus-visible:ring-2 peer-focus-visible:ring-lime-500 peer-focus-visible:ring-offset-2">
+            <span className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-md border border-cloud-700 bg-white text-transparent transition-colors duration-200 peer-checked:border-lime-500 peer-checked:bg-lime-500 peer-checked:text-midnight-900 peer-focus-visible:ring-2 peer-focus-visible:ring-lime-500 peer-focus-visible:ring-offset-2">
               <svg viewBox="0 0 16 16" className="size-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M3 8.5l3.2 3L13 4.5" />
               </svg>

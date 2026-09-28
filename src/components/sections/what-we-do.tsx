@@ -56,7 +56,7 @@ export function WhatWeDo() {
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {ITEMS.map(({ title, icon: Icon, body }, i) => (
             <Reveal key={title} delay={i * 70}>
-              <div className="flex h-full flex-col gap-4 rounded-2xl border border-cloud-600 bg-cloud-50 p-6">
+              <div className="flex h-full flex-col gap-4 rounded-2xl border border-cloud-600 bg-card p-6">
                 <span className="flex size-11 items-center justify-center rounded-full bg-midnight-500">
                   <Icon className="size-5 text-lime-500" weight="regular" />
                 </span>

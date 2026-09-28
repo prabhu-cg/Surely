@@ -6,19 +6,22 @@ import { CtaButton } from "@/components/ui/cta-button";
 
 const FOUNDERS = [
   {
-    name: "The Builder.",
+    name: "Rinni",
+    archetype: "The Builder.",
     tagline: "Driven. Practical. Action-oriented.",
     body: "Sees the opportunity to make something better and get moving.",
     image: "/images/founder-builder.png",
   },
   {
-    name: "The Explorer.",
+    name: "Mike",
+    archetype: "The Explorer.",
     tagline: "What could be different.",
     body: "Looks beyond the obvious and asks what else might be possible.",
     image: "/images/founder-explorer.png",
   },
   {
-    name: "The Thinker.",
+    name: "Prabhu",
+    archetype: "The Thinker.",
     tagline: "What matters.",
     body: "Looks beneath the surface to understand how things connect.",
     image: "/images/founder-thinker.png",
@@ -48,7 +51,7 @@ export function ThreePerspectives({
                   <span className="relative size-14 shrink-0 overflow-hidden rounded-full ring-2 ring-midnight-900/10">
                     <Image
                       src={founder.image}
-                      alt={founder.name.replace(".", "")}
+                      alt={`${founder.name}, ${founder.archetype.replace(".", "")}`}
                       fill
                       sizes="56px"
                       className="object-cover"
@@ -59,7 +62,7 @@ export function ThreePerspectives({
                       {founder.name}
                     </p>
                     <p className="text-body-sm text-midnight-700">
-                      {founder.tagline}
+                      {founder.archetype.replace(".", "")} &middot; {founder.tagline}
                     </p>
                   </div>
                 </div>
@@ -98,7 +101,7 @@ export function ThreePerspectives({
                 <div className="relative aspect-[4/5] w-full overflow-hidden rounded-xl">
                   <Image
                     src={founder.image}
-                    alt={founder.name.replace(".", "")}
+                    alt={`${founder.name}, ${founder.archetype.replace(".", "")}`}
                     fill
                     sizes="(min-width: 1024px) 380px, (min-width: 640px) 45vw, 100vw"
                     className="object-cover"
@@ -107,6 +110,9 @@ export function ThreePerspectives({
                 <div className="flex flex-col gap-2">
                   <p className="text-heading-xs font-bold text-cloud-50">
                     {founder.name}
+                  </p>
+                  <p className="text-body-sm font-semibold text-midnight-300 uppercase tracking-[0.08em]">
+                    {founder.archetype}
                   </p>
                   <p className="text-body-sm font-semibold text-lime-500">
                     {founder.tagline}

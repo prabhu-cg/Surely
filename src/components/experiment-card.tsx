@@ -27,7 +27,7 @@ export function ExperimentCard({ experiment }: { experiment: Experiment }) {
   return (
     <Link
       href={`/experiments/${experiment.slug}`}
-      className="group flex h-full flex-col justify-between gap-6 rounded-2xl border border-cloud-600 bg-cloud-50 p-6 transition-colors duration-200 hover:border-midnight-800 focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:ring-offset-2 focus-visible:outline-none"
+      className="group flex h-full flex-col justify-between gap-6 rounded-2xl border border-cloud-600 bg-card p-6 transition-colors duration-200 hover:border-midnight-800 focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:ring-offset-2 focus-visible:outline-none"
     >
       <div className="flex flex-col gap-4">
         <div className="flex flex-wrap items-center gap-2">

@@ -53,7 +53,7 @@ function ProblemTable({ problems, query }: { problems: Problem[]; query: string 
           {problems.map((p) => (
             <tr
               key={p.slug}
-              className="border-b border-cloud-600 transition-colors duration-200 last:border-b-0 hover:bg-cloud-50"
+              className="border-b border-cloud-600 bg-white transition-colors duration-200 last:border-b-0 hover:bg-cloud-100"
             >
               <td className="px-5 py-4 align-top">
                 <Link
@@ -167,7 +167,7 @@ export function ProblemBank() {
             value={query}
             onChange={(e) => setQueryAndReset(e.target.value)}
             placeholder="Search, e.g. insurance, childcare, passport"
-            className="w-full rounded-full border border-cloud-600 bg-cloud-50 py-3 pr-4 pl-12 text-body-md text-midnight-800 placeholder:text-cloud-800 transition-colors duration-200 hover:border-midnight-300 focus-visible:border-midnight-800 focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:outline-none"
+            className="w-full rounded-full border border-cloud-600 bg-white py-3 pr-4 pl-12 text-body-md text-midnight-800 placeholder:text-cloud-800 transition-colors duration-200 hover:border-midnight-300 focus-visible:border-midnight-800 focus-visible:ring-2 focus-visible:ring-lime-500 focus-visible:outline-none"
           />
         </div>
 

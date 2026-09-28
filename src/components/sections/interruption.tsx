@@ -23,7 +23,7 @@ const HARDER = [
 
 function BulletCard({ title, items }: { title: string; items: string[] }) {
   return (
-    <div className="flex flex-col gap-5 rounded-2xl border border-cloud-600 bg-cloud-50 p-8 sm:p-10">
+    <div className="flex flex-col gap-5 rounded-2xl border border-cloud-600 bg-card p-8 sm:p-10">
       <p className="font-serif text-heading-xs text-midnight-800">{title}</p>
       <ul className="flex flex-col gap-4">
         {items.map((item) => (

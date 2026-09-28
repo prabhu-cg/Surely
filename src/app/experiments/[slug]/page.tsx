@@ -143,7 +143,7 @@ export default async function ExperimentPage({ params }: Props) {
                 {experiment.insights.map((ins) => (
                   <div
                     key={ins.n}
-                    className="flex items-start gap-4 rounded-2xl border border-cloud-600 bg-cloud-50 p-6"
+                    className="flex items-start gap-4 rounded-2xl border border-cloud-600 bg-card p-6"
                   >
                     <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-lime-500 text-body-sm font-bold text-midnight-900">
                       {ins.n}

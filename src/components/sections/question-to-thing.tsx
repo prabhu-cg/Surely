@@ -99,7 +99,7 @@ export function QuestionToThing() {
         <div ref={ref} className="grid grid-cols-1 items-center gap-6 lg:grid-cols-[1fr_auto_1fr] lg:gap-6">
           <div
             className={cn(
-              "flex flex-col gap-4 rounded-2xl bg-cloud-50 p-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
+              "flex flex-col gap-4 rounded-2xl bg-card p-8 transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]",
               inView ? "translate-x-0 opacity-100" : "-translate-x-6 opacity-0"
             )}
           >
