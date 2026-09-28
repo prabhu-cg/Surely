@@ -22,6 +22,10 @@
   --color-cloud-800: #8c8b88;
   --color-cloud-900: #6b6a68;
 
+  /* Pure white — reserved for elevated surfaces (cards, inputs, table rows)
+     that need to read lighter than the cloud ramp's warm off-whites. */
+  --color-white: #ffffff;
+
   /* Midnight — dark neutral ramp */
   --color-midnight-50: #e8e8e8;
   --color-midnight-100: #b7b7b7;
@@ -130,7 +134,7 @@
 :root {
   --background: var(--color-cloud-50);
   --foreground: var(--color-midnight-800);
-  --card: #ffffff;
+  --card: var(--color-white);
   --card-foreground: var(--color-midnight-800);
   --popover: var(--color-cloud-50);
   --popover-foreground: var(--color-midnight-800);
@@ -165,7 +169,7 @@
 .dark {
   --background: var(--color-midnight-700);
   --foreground: var(--color-cloud-50);
-  --card: #ffffff;
+  --card: var(--color-white);
   --card-foreground: var(--color-cloud-50);
   --popover: var(--color-midnight-600);
   --popover-foreground: var(--color-cloud-50);
@@ -206,8 +210,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply text-foreground;
-    background-color: #fffdf8;
+    @apply text-foreground bg-cloud-500;
   }
   html {
     @apply font-sans;

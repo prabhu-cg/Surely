@@ -40,7 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${plusJakartaSans.variable} ${sourceSerif4.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-[#FFFDF8] text-midnight-800 font-sans">
+      <body className="min-h-full flex flex-col bg-cloud-500 text-midnight-800 font-sans">
         {children}
       </body>
     </html>

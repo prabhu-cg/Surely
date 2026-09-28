@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-28T19:42:05Z",
+  "title": "Design System: Surely",
+  "extensions": {
+    "colorMeta": {
+      "midnight-ink": {
+        "role": "primary",
+        "displayName": "Midnight Ink",
+        "canonical": "#181818",
+        "tonalRamp": ["#0a0a0a", "#0d0d0d", "#111111", "#161616", "#181818", "#464646", "#646464", "#959595"]
+      },
+      "lime-signal": {
+        "role": "secondary",
+        "displayName": "Lime Signal",
+        "canonical": "#c7f000",
+        "tonalRamp": ["#546500", "#6d8400", "#8daa00", "#b5da00", "#c7f000", "#d2f333", "#e5f88a", "#f9fee6"]
+      },
+      "lime-wash": {
+        "role": "secondary-tint",
+        "displayName": "Lime Wash",
+        "canonical": "#eefab0",
+        "tonalRamp": ["#546500", "#8daa00", "#b5da00", "#c7f000", "#d9f554", "#e5f88a", "#eefab0", "#f9fee6"]
+      },
+      "cloud-paper": {
+        "role": "neutral",
+        "displayName": "Cloud Paper",
+        "canonical": "#fffffe",
+        "tonalRamp": ["#6b6a68", "#8c8b88", "#b5b4b0", "#e8e6e2", "#fffdf8", "#fffdf9", "#fffefc", "#fffffe"]
+      },
+      "page-bone": {
+        "role": "neutral-background",
+        "displayName": "Page Bone",
+        "canonical": "#fffdf8",
+        "tonalRamp": ["#fffdf8"]
+      },
+      "card-white": {
+        "role": "neutral-surface",
+        "displayName": "Card White",
+        "canonical": "#ffffff",
+        "tonalRamp": ["#ffffff"]
+      },
+      "destructive": {
+        "role": "destructive",
+        "displayName": "Destructive Red",
+        "canonical": "oklch(0.577 0.245 27.325)",
+        "tonalRamp": ["oklch(0.3 0.18 27)", "oklch(0.45 0.22 27)", "oklch(0.577 0.245 27.325)", "oklch(0.704 0.191 22.216)", "oklch(0.82 0.13 27)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Largest marketing statements; defined in the type scale but not yet in wide use on shipped pages." },
+      "heading": { "displayName": "Heading (sans, uppercase)", "purpose": "Hero H1s and major section H2s. Always uppercase, extra-bold, tight tracking." },
+      "card-heading": { "displayName": "Card/Content Title (serif)", "purpose": "Problem/experiment card titles and in-page subheads. The one place Source Serif 4 appears." },
+      "body": { "displayName": "Body", "purpose": "Paragraph copy, form labels, nav links." },
+      "label": { "displayName": "Label / Eyebrow", "purpose": "Eyebrows, table column headers, filter-group labels, topic pills — uppercase, tracked, semibold/bold." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "cta-hover-scale", "value": "transition-all duration-200 ease-out hover:scale-[1.03] active:scale-[0.97]", "purpose": "Primary CTA button hover/press micro-motion." },
+      { "name": "underline-reveal", "value": "underline decoration-4 decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-lime-500", "purpose": "Nav and inline-link hover/active treatment; underline color animates in rather than being always-visible." },
+      { "name": "button-press", "value": "active:not-aria-[haspopup]:translate-y-px", "purpose": "1px press-down feedback on shadcn Button primitive." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary CTA Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Default CtaButton, dark variant. Used for most primary actions across the site (nav 'Let's talk', form submit).",
+      "html": "<button class=\"ds-btn-primary\"><span>Let&rsquo;s talk</span><svg class=\"ds-btn-arrow\" viewBox=\"0 0 256 256\" width=\"16\" height=\"16\"><path d=\"M221.7,133.7l-72,72a8.1,8.1,0,0,1-11.4-11.4L196.7,136H40a8,8,0,0,1,0-16H196.7L138.3,61.7a8.1,8.1,0,0,1,11.4-11.4l72,72A8,8,0,0,1,221.7,133.7Z\" fill=\"currentColor\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; border-radius: 9999px; padding: 12px 24px; font-size: 14px; font-weight: 600; background: #181818; color: #fffffe; border: none; cursor: pointer; transition: background 0.2s ease-out, color 0.2s ease-out, transform 0.2s ease-out; } .ds-btn-primary:hover { background: #c7f000; color: #0a0a0a; transform: scale(1.03); } .ds-btn-primary:active { transform: scale(0.97); } .ds-btn-primary:focus-visible { outline: none; box-shadow: 0 0 0 2px #fffdf8, 0 0 0 4px #c7f000; } .ds-btn-arrow { transition: transform 0.2s ease-out; } .ds-btn-primary:hover .ds-btn-arrow { transform: translateX(4px); }"
+    },
+    {
+      "name": "Lime CTA Button",
+      "kind": "button",
+      "refersTo": "button-lime",
+      "description": "Highest-emphasis single CTA per page (e.g. hero 'Let's explore').",
+      "html": "<button class=\"ds-btn-lime\"><span>Let&rsquo;s explore</span></button>",
+      "css": ".ds-btn-lime { display: inline-flex; align-items: center; gap: 10px; border-radius: 9999px; padding: 12px 24px; font-size: 14px; font-weight: 600; background: #c7f000; color: #0a0a0a; border: none; cursor: pointer; transition: background 0.2s ease-out, transform 0.2s ease-out; } .ds-btn-lime:hover { background: #fffdf8; transform: scale(1.03); } .ds-btn-lime:active { transform: scale(0.97); }"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary action, e.g. 'Edit my answers'.",
+      "html": "<button class=\"ds-btn-outline\">Edit my answers</button>",
+      "css": ".ds-btn-outline { border-radius: 9999px; padding: 12px 24px; font-size: 14px; font-weight: 600; background: transparent; color: #181818; border: 1px solid rgba(24,24,24,0.3); cursor: pointer; transition: border-color 0.2s, background 0.2s, color 0.2s; } .ds-btn-outline:hover { border-color: #0d0d0d; background: #0d0d0d; color: #fffffe; }"
+    },
+    {
+      "name": "Problem/Experiment Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Content card: topic pill + serif title + excerpt + footer link. Used in problem and experiment banks.",
+      "html": "<a class=\"ds-card\" href=\"#\"><div class=\"ds-card-tags\"><span class=\"ds-pill-lime\">Money</span><span class=\"ds-pill-outline\">Work</span></div><h3 class=\"ds-card-title\">Invoicing still eats a whole afternoon</h3><p class=\"ds-card-body\">Every month the same manual chase across three different tools.</p><span class=\"ds-card-cta\">See the problem &rarr;</span></a>",
+      "css": ".ds-card { display: flex; flex-direction: column; justify-content: space-between; gap: 24px; height: 100%; border-radius: 28.8px; border: 1px solid #e8e6e2; background: #ffffff; padding: 24px; text-decoration: none; transition: border-color 0.2s; } .ds-card:hover { border-color: #0d0d0d; } .ds-card-tags { display: flex; flex-wrap: wrap; gap: 8px; } .ds-pill-lime { border-radius: 9999px; background: #eefab0; color: #0a0a0a; font-size: 12px; font-weight: 600; padding: 4px 12px; } .ds-pill-outline { border-radius: 9999px; border: 1px solid #e8e6e2; color: #181818; font-size: 12px; font-weight: 600; padding: 4px 12px; } .ds-card-title { font-family: 'Source Serif 4', Georgia, serif; font-size: 24px; line-height: 28px; color: #181818; margin: 0; } .ds-card-body { font-size: 14px; color: #181818; margin: 0; } .ds-card-cta { font-size: 14px; font-weight: 600; color: #181818; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Standard text field used across the problem submission form.",
+      "html": "<input class=\"ds-input\" type=\"text\" placeholder=\"In a sentence\" />",
+      "css": ".ds-input { width: 100%; border-radius: 22.4px; border: 1px solid #e8e6e2; background: #ffffff; padding: 12px 16px; font-size: 16px; color: #181818; transition: border-color 0.2s; } .ds-input::placeholder { color: #8c8b88; } .ds-input:hover { border-color: #646464; } .ds-input:focus-visible { outline: none; border-color: #0d0d0d; box-shadow: 0 0 0 2px #c7f000; }"
+    },
+    {
+      "name": "Section Eyebrow",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Tracked uppercase label with a leading dot, shown above nearly every section headline in three tone variants. Shipped fact, not a recommendation to add more.",
+      "html": "<p class=\"ds-eyebrow\"><span class=\"ds-eyebrow-dot\"></span>A different perspective</p>",
+      "css": ".ds-eyebrow { display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #464646; margin: 0; } .ds-eyebrow-dot { width: 6px; height: 6px; border-radius: 9999px; background: #c7f000; }"
+    },
+    {
+      "name": "Filter Chip",
+      "kind": "chip",
+      "refersTo": "badge-topic",
+      "description": "Toggleable filter control used in problem/experiment bank filter rails.",
+      "html": "<button class=\"ds-chip ds-chip--active\" aria-pressed=\"true\">Work</button>",
+      "css": ".ds-chip { border-radius: 9999px; border: 1px solid #e8e6e2; padding: 8px 16px; font-size: 14px; font-weight: 600; color: #464646; background: transparent; cursor: pointer; transition: border-color 0.2s, background 0.2s, color 0.2s; } .ds-chip:hover { border-color: #0d0d0d; } .ds-chip--active { border-color: #181818; background: #181818; color: #fffffe; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Confident Contrarian",
+    "overview": "Surely is a studio that exists to question what everyone else accepts, and the site is built to hold that stance visually: short, blunt, uppercase display statements in extra-bold sans-serif sit against near-black \"Midnight\" sections, punctuated by a single unmistakable accent — a raw, unmixed lime (#c7f000). Outside those dark statement moments, the site relaxes into an off-white \"Cloud\" canvas of soft-cornered white cards, calm serif sub-headings, and quiet neutral borders. The pairing is deliberate: sans-serif extra-bold uppercase carries conviction and authority (hero lines, section headlines), while the serif (Source Serif 4) is reserved for card and content titles, giving those moments a slower, more editorial register.\n\nThe system is flat, not shadowed — depth comes from color blocking (midnight sections, lime sections, white cards on cloud backgrounds) and from a consistent large-radius rounding language, not from elevation. Corners are generously rounded almost everywhere (buttons and pills are fully rounded; cards, inputs, and images use large 1-1.8rem radii), which softens what would otherwise be a very high-contrast, poster-like palette.",
+    "keyCharacteristics": [
+      "Near-black \"Midnight\" sections carry the boldest statements; lime is the only saturated color and appears sparingly, as accent fills, focus rings, and hover states.",
+      "Sans-serif extra-bold uppercase for structural headings; serif for card/content titles — a deliberate two-voice type pairing.",
+      "Flat, borderless-by-default surfaces; depth comes from background color blocking, not shadows.",
+      "Full-radius pills for every button, chip, and toggle; large (1-1.8rem) radii for cards, inputs, and photography.",
+      "Cards, form fields, and table rows are consistently rendered on literal white, distinct from the warm off-white page canvas."
+    ],
+    "rules": [
+      { "name": "The One Accent Rule", "body": "Lime is the only saturated color in the system. It is reserved for interaction feedback (hover, focus, active, success) and small intentional blocks — never a background for large bodies of text or a default UI color.", "section": "colors" },
+      { "name": "The Split Surface Rule", "body": "--card (#ffffff) and the body background (#fffdf8) are pinned to literal hex values rather than the --color-cloud-* token ramp, and --card stays #ffffff in both light and dark mode. This means cards read as a fractionally cooler white than the page they sit on, and dark mode currently ships no distinct dark card surface — both are shipped realities, not yet reconciled with the token system, and should be treated as the current source of truth rather than \"corrected\" back to cloud-50 without a deliberate design decision.", "section": "colors" },
+      { "name": "The Uppercase-Authority Rule", "body": "Uppercase + extra-bold (800) weight is reserved for structural headings (H1/H2) and labels/eyebrows. Body copy, card titles, and links are never uppercased.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Surfaces are flat at rest and on interaction. State changes (hover, focus, active) are communicated through color shift (border darkening, background inversion to lime), underline decoration, or a 1px translate-y press effect on buttons — never through elevation.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep lime to a single accent role per view — hover fills, focus rings, small tint blocks (lime-100) — never a primary background for text-heavy content.",
+      "Do use rounded-full for every interactive pill/button/chip and rounded-2xl/rounded-xl for cards/inputs; don't mix in a smaller or sharper radius for the same component class.",
+      "Do pair uppercase extra-bold sans headings with sentence-case serif for card/content titles — the two-voice contrast is a deliberate, reused pattern, not an inconsistency.",
+      "Do treat #ffffff as the literal, deliberate card/table/input surface color and #fffdf8 as the literal, deliberate page background — both are current source of truth even though they bypass the cloud-* token ramp."
+    ],
+    "donts": [
+      "Don't introduce box-shadow elevation; this system conveys hierarchy through flat color blocking and borders only.",
+      "Don't treat SectionEyebrow as license to add more kicker/eyebrow labels to net-new surfaces by default — it is already load-bearing across nearly every section on this site, and its further spread should be a deliberate call per new surface, not an inherited reflex.",
+      "Don't reconcile --card or the body background back to --color-cloud-50 without a deliberate design decision — the literal-hex override is a recorded, intentional deviation (see Split Surface Rule), not a bug to silently \"fix.\"",
+      "Don't use the destructive red for anything other than form validation states."
+    ]
+  }
+}
